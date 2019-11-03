@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2019-11-02T07:34:24.828Z</updated>
+  <updated>2019-11-03T07:55:07.135Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法面试中应该注意的事</title>
+    <link href="http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/"/>
+    <id>http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/</id>
+    <published>2019-11-03T07:53:00.000Z</published>
+    <updated>2019-11-03T07:55:07.135Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;通过学习拉勾网资深软件工程师su yong的算法面试课程，收获很大。如果您也有兴趣，欢迎点击&lt;a href=&quot;https://kaiwu.lagou.com/course/courseInfo.htm?courseId=3#/detail/pc?id=29&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://ml-zimingmeng.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="面试" scheme="http://ml-zimingmeng.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="Leetcode" scheme="http://ml-zimingmeng.github.io/tags/Leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>折腾了一天，我终于开通了自己的博客</title>
