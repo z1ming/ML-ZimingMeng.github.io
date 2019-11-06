@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2019-11-06T08:43:40.763Z</updated>
+  <updated>2019-11-06T08:49:55.512Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>git commit中的相关引用</title>
+    <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
+    <link href="http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/"/>
+    <id>http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/</id>
+    <published>2019-11-06T03:00:00.000Z</published>
+    <updated>2019-11-06T08:49:55.512Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;新建一个分支，例如我的新分支名称为&lt;code&gt;newbranch&lt;/code&gt;，当使用&lt;code&gt;git checkout
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://ml-zimingmeng.github.io/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://ml-zimingmeng.github.io/tags/Git/"/>
+    
+      <category term="checkout" scheme="http://ml-zimingmeng.github.io/tags/checkout/"/>
+    
+      <category term="diff2" scheme="http://ml-zimingmeng.github.io/tags/diff2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git commit中的相关引用</title>
     <link href="http://ml-zimingmeng.github.io/2019/11/06/git-commit/"/>
     <id>http://ml-zimingmeng.github.io/2019/11/06/git-commit/</id>
     <published>2019-11-06T03:00:00.000Z</published>
-    <updated>2019-11-06T08:43:40.763Z</updated>
+    <updated>2019-11-06T08:50:18.716Z</updated>
     
     <summary type="html">
     
@@ -46,37 +77,6 @@
       <category term="祖先引用" scheme="http://ml-zimingmeng.github.io/tags/%E7%A5%96%E5%85%88%E5%BC%95%E7%94%A8/"/>
     
       <category term="HEAD^" scheme="http://ml-zimingmeng.github.io/tags/HEAD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
-    <link href="http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/"/>
-    <id>http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/</id>
-    <published>2019-11-06T03:00:00.000Z</published>
-    <updated>2019-11-06T03:09:11.054Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;新建一个分支，例如我的新分支名称为&lt;code&gt;newbranch&lt;/code&gt;，当使用&lt;code&gt;git checkout
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/categories/Git/"/>
-    
-    
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/tags/Git/"/>
-    
-      <category term="checkout" scheme="http://ml-zimingmeng.github.io/tags/checkout/"/>
-    
-      <category term="diff2" scheme="http://ml-zimingmeng.github.io/tags/diff2/"/>
     
   </entry>
   
@@ -116,7 +116,7 @@
     <link href="http://ml-zimingmeng.github.io/2019/11/02/zhe-teng-liao-yi-tian-wo-zhong-yu-kai-tong-liao-zi-ji-de-bo-ke-wang-zhan/"/>
     <id>http://ml-zimingmeng.github.io/2019/11/02/zhe-teng-liao-yi-tian-wo-zhong-yu-kai-tong-liao-zi-ji-de-bo-ke-wang-zhan/</id>
     <published>2019-11-02T07:29:00.000Z</published>
-    <updated>2019-11-04T10:15:18.135Z</updated>
+    <updated>2019-11-06T08:49:13.101Z</updated>
     
     <summary type="html">
     

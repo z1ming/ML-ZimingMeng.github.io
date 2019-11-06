@@ -4,7 +4,36 @@
   
     
     <entry>
-      <title>git commit中的相关引用</title>
+      <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
+      <link href="/2019/11/06/fatal-diff2-jie-jue-ban-fa/"/>
+      <url>/2019/11/06/fatal-diff2-jie-jue-ban-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>新建一个分支，例如我的新分支名称为<code>newbranch</code>，当使用<code>git checkout newbranch</code>切换到新分支时，出现如下错误：</p><pre><code>77392 (master) new-git-project$ git checkout newbranchfatal: unknown style 'diff2' given for 'merge.conflictstyle'</code></pre><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>由于本人刚刚接触Git，只知道可能是<code>diff2</code>这个配置出现了问题。</p><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>使用如下命令将<code>diff2</code>换成<code>diff3</code>，如果还是不行可以试试<code>diff</code>，<code>diff5</code>，<code>diff4</code>等：</p><pre><code>77392 (master) new-git-project$ git config --global merge.conflictstyle diff3</code></pre><p>这时再次使用<code>git checkout newbranch</code>，问题解决。</p><pre><code>77392 (master) new-git-project$ git checkout newbranchSwitched to branch 'newbranch'</code></pre><p>本人对<code>$ git config --global merge.conflictstyle diff3</code>这行命令没有理解，如果您有更好的解释欢迎在下方留言。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> checkout </tag>
+            
+            <tag> diff2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git commit中的相关引用</title>
       <link href="/2019/11/06/git-commit/"/>
       <url>/2019/11/06/git-commit/</url>
       
@@ -27,35 +56,6 @@
             <tag> 祖先引用 </tag>
             
             <tag> HEAD^ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
-      <link href="/2019/11/06/fatal-diff2-jie-jue-ban-fa/"/>
-      <url>/2019/11/06/fatal-diff2-jie-jue-ban-fa/</url>
-      
-        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>新建一个分支，例如我的新分支名称为<code>newbranch</code>，当使用<code>git checkout newbranch</code>切换到新分支时，出现如下错误：</p><pre><code>77392 (master) new-git-project$ git checkout newbranchfatal: unknown style 'diff2' given for 'merge.conflictstyle'</code></pre><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>由于本人刚刚接触Git，只知道可能是<code>diff2</code>这个配置出现了问题。</p><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>使用如下命令将<code>diff2</code>换成<code>diff3</code>，如果还是不行可以试试<code>diff</code>，<code>diff5</code>，<code>diff4</code>等：</p><pre><code>77392 (master) new-git-project$ git config --global merge.conflictstyle diff3</code></pre><p>这时再次使用<code>git checkout newbranch</code>，问题解决。</p><pre><code>77392 (master) new-git-project$ git checkout newbranchSwitched to branch 'newbranch'</code></pre><p>本人对<code>$ git config --global merge.conflictstyle diff3</code>这行命令没有理解，如果您有更好的解释欢迎在下方留言。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> Git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Git </tag>
-            
-            <tag> checkout </tag>
-            
-            <tag> diff2 </tag>
             
         </tags>
       
