@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2019-11-06T03:09:11.054Z</updated>
+  <updated>2019-11-06T08:43:40.763Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git commit中的相关引用</title>
+    <link href="http://ml-zimingmeng.github.io/2019/11/06/git-commit/"/>
+    <id>http://ml-zimingmeng.github.io/2019/11/06/git-commit/</id>
+    <published>2019-11-06T03:00:00.000Z</published>
+    <updated>2019-11-06T08:43:40.763Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在Git中，可以使用 SHA、标签、分支和特殊的 &lt;code&gt;HEAD&lt;/code&gt;指针引用 commit。有时候这些并不足够，你可能需要引用相对于另一个 commit 的 commit。例如，有时候你需要告诉 git 调用当前 commit 的前一个
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://ml-zimingmeng.github.io/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://ml-zimingmeng.github.io/tags/Git/"/>
+    
+      <category term="commit" scheme="http://ml-zimingmeng.github.io/tags/commit/"/>
+    
+      <category term="祖先引用" scheme="http://ml-zimingmeng.github.io/tags/%E7%A5%96%E5%85%88%E5%BC%95%E7%94%A8/"/>
+    
+      <category term="HEAD^" scheme="http://ml-zimingmeng.github.io/tags/HEAD/"/>
+    
+  </entry>
   
   <entry>
     <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
