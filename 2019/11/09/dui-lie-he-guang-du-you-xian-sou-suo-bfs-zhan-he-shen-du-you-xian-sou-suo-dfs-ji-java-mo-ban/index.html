@@ -499,9 +499,10 @@ int BFS(Node root, Node target) {
 <li>你确实希望多次将结点添加到队列中。</li>
 </ol>
 </blockquote>
-<h2 id="栈和深度优先搜索（DFS）"><a href="#栈和深度优先搜索（DFS）" class="headerlink" title="栈和深度优先搜索（DFS）"></a>栈和深度优先搜索（DFS）</h2>与 BFS 类似，<strong>深度优先搜索</strong>（DFS）也可用于查找从根结点到目标结点的路径。在本文中，我们提供了示例来解释 DFS 是如何工作的以及栈是如何逐步帮助 DFS 工作的。<br><a href="https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/881/" target="_blank" rel="noopener">图</a><h5 id="1-结点的处理顺序是什么？-1"><a href="#1-结点的处理顺序是什么？-1" class="headerlink" title="1. 结点的处理顺序是什么？"></a>1. 结点的处理顺序是什么？</h5></li>
+</li>
 </ol>
-<p>在上面的例子中，我们从根结点 A 开始。首先，我们选择结点 B 的路径，并进行回溯，直到我们到达结点 E，我们无法更进一步深入。然后我们回溯到 A 并选择第二条路径到结点 C 。从 C 开始，我们尝试第一条路径到 E 但是 E 已被访问过。所以我们回到 C 并尝试从另一条路径到 F。最后，我们找到了 G。</p>
+<h2 id="栈和深度优先搜索（DFS）"><a href="#栈和深度优先搜索（DFS）" class="headerlink" title="栈和深度优先搜索（DFS）"></a>栈和深度优先搜索（DFS）</h2><p>与 BFS 类似，<strong>深度优先搜索</strong>（DFS）也可用于查找从根结点到目标结点的路径。在本文中，我们提供了示例来解释 DFS 是如何工作的以及栈是如何逐步帮助 DFS 工作的。<br><a href="https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/881/" target="_blank" rel="noopener">图</a></p>
+<h5 id="1-结点的处理顺序是什么？-1"><a href="#1-结点的处理顺序是什么？-1" class="headerlink" title="1. 结点的处理顺序是什么？"></a>1. 结点的处理顺序是什么？</h5><p>在上面的例子中，我们从根结点 A 开始。首先，我们选择结点 B 的路径，并进行回溯，直到我们到达结点 E，我们无法更进一步深入。然后我们回溯到 A 并选择第二条路径到结点 C 。从 C 开始，我们尝试第一条路径到 E 但是 E 已被访问过。所以我们回到 C 并尝试从另一条路径到 F。最后，我们找到了 G。</p>
 <p>总的来说，在我们到达最深的结点之后，我们只会回溯并尝试另一条路径。</p>
 <blockquote>
 <p>因此，你在 DFS 中找到的第一条路径并不总是最短的路径。例如，在上面的例子中，我们成功找出了路径 A-&gt; C-&gt; F-&gt; G 并停止了 DFS。但这不是从 A 到 G 的最短路径。</p>
