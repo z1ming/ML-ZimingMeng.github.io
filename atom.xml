@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hexo</title>
   <icon>http://ml-zimingmeng.github.io/icon.png</icon>
-  <subtitle>机器学习，数据结构和我</subtitle>
+  <subtitle>LeetCode题解 机器学习</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2019-11-06T08:50:18.716Z</updated>
+  <updated>2019-11-11T10:36:49.271Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Git commit中的相关引用</title>
-    <link href="http://ml-zimingmeng.github.io/2019/11/06/git-commit/"/>
-    <id>http://ml-zimingmeng.github.io/2019/11/06/git-commit/</id>
-    <published>2019-11-06T03:00:00.000Z</published>
-    <updated>2019-11-06T08:50:18.716Z</updated>
+    <title>队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板</title>
+    <link href="http://ml-zimingmeng.github.io/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/"/>
+    <id>http://ml-zimingmeng.github.io/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/</id>
+    <published>2019-11-09T14:00:00.000Z</published>
+    <updated>2019-11-11T10:36:49.271Z</updated>
     
     <summary type="html">
     
@@ -29,32 +29,32 @@
       
         
         
-          &lt;p&gt;在Git中，可以使用 SHA、标签、分支和特殊的 &lt;code&gt;HEAD&lt;/code&gt;指针引用 commit。有时候这些并不足够，你可能需要引用相对于另一个 commit 的 commit。例如，有时候你需要告诉 git 调用当前 commit 的前一个
+          &lt;p&gt;本文为&lt;a
         
       
     
     </summary>
     
     
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/categories/Git/"/>
+      <category term="算法" scheme="http://ml-zimingmeng.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/tags/Git/"/>
+      <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="commit" scheme="http://ml-zimingmeng.github.io/tags/commit/"/>
+      <category term="Python" scheme="http://ml-zimingmeng.github.io/tags/Python/"/>
     
-      <category term="祖先引用" scheme="http://ml-zimingmeng.github.io/tags/%E7%A5%96%E5%85%88%E5%BC%95%E7%94%A8/"/>
+      <category term="BFS" scheme="http://ml-zimingmeng.github.io/tags/BFS/"/>
     
-      <category term="HEAD^" scheme="http://ml-zimingmeng.github.io/tags/HEAD/"/>
+      <category term="DFS" scheme="http://ml-zimingmeng.github.io/tags/DFS/"/>
     
   </entry>
   
   <entry>
-    <title>fatal:unknown style &#39;diff2&#39; given for &#39;merge.conflictstyle&#39;解决办法</title>
-    <link href="http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/"/>
-    <id>http://ml-zimingmeng.github.io/2019/11/06/fatal-diff2-jie-jue-ban-fa/</id>
-    <published>2019-11-06T03:00:00.000Z</published>
-    <updated>2019-11-06T08:49:55.512Z</updated>
+    <title>算法面试中应该注意的事</title>
+    <link href="http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/"/>
+    <id>http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/</id>
+    <published>2019-11-03T07:53:00.000Z</published>
+    <updated>2019-11-03T07:59:49.057Z</updated>
     
     <summary type="html">
     
@@ -62,21 +62,21 @@
       
         
         
-          &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;新建一个分支，例如我的新分支名称为&lt;code&gt;newbranch&lt;/code&gt;，当使用&lt;code&gt;git checkout
+          &lt;p&gt;通过学习拉勾网资深软件工程师su yong的算法面试课程，收获很大。如果您也有兴趣，欢迎点击&lt;a href=&quot;https://kaiwu.lagou.com/course/courseInfo.htm?courseId=3#/detail/pc?id=29&quot;
         
       
     
     </summary>
     
     
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/categories/Git/"/>
+      <category term="面试" scheme="http://ml-zimingmeng.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
     
     
-      <category term="Git" scheme="http://ml-zimingmeng.github.io/tags/Git/"/>
+      <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="checkout" scheme="http://ml-zimingmeng.github.io/tags/checkout/"/>
+      <category term="面试" scheme="http://ml-zimingmeng.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="diff2" scheme="http://ml-zimingmeng.github.io/tags/diff2/"/>
+      <category term="Leetcode" scheme="http://ml-zimingmeng.github.io/tags/Leetcode/"/>
     
   </entry>
   
