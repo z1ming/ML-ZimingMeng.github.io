@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2019-11-11T10:36:49.271Z</updated>
+  <updated>2020-01-23T18:14:03.936Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>373.查找和最小的K对数字题解</title>
+    <link href="http://ml-zimingmeng.github.io/2020/01/24/373.cha-zhao-he-zui-xiao-de-k-dui-shu-zi-ti-jie/"/>
+    <id>http://ml-zimingmeng.github.io/2020/01/24/373.cha-zhao-he-zui-xiao-de-k-dui-shu-zi-ti-jie/</id>
+    <published>2020-01-23T18:12:37.563Z</published>
+    <updated>2020-01-23T18:14:03.936Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;解法一：暴力&quot;&gt;&lt;a href=&quot;#解法一：暴力&quot; class=&quot;headerlink&quot; title=&quot;解法一：暴力&quot;&gt;&lt;/a&gt;解法一：暴力&lt;/h3&gt;&lt;p&gt;枚举所有组合，按照和排序，最后返回前 K 项。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板</title>
