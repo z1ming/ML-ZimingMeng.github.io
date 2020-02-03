@@ -4,25 +4,50 @@
   
     
     <entry>
-      <title>373.查找和最小的K对数字 题解</title>
-      <link href="/2020/01/24/373.cha-zhao-he-zui-xiao-de-k-dui-shu-zi-ti-jie/"/>
-      <url>/2020/01/24/373.cha-zhao-he-zui-xiao-de-k-dui-shu-zi-ti-jie/</url>
+      <title>45. Jump Game II</title>
+      <link href="/2020/02/03/45.jump-game-ii/"/>
+      <url>/2020/02/03/45.jump-game-ii/</url>
       
-        <content type="html"><![CDATA[<h3 id="解法一：暴力"><a href="#解法一：暴力" class="headerlink" title="解法一：暴力"></a>解法一：暴力</h3><p>枚举所有组合，按照和排序，最后返回前 K 项。<br><img src="https://pic.leetcode-cn.com/c6e8cfde2aa085ed377abba0373124247626f6ecbec347aa80f156ac7ff4f78d-%E7%BB%84%E5%90%881.png" alt="组合1.png"></p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    return sorted(itertools.product(nums1, nums2), key=sum)[:k]</code></pre><h3 id="解法二：暴力标准解"><a href="#解法二：暴力标准解" class="headerlink" title="解法二：暴力标准解"></a>解法二：暴力标准解</h3><p>这个解法更加标准，因为上面的解法生成的是元组不是列表。</p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    return map(list, sorted(itertools.product(nums1, nums2), key=sum)[:k])</code></pre><h3 id="解法三：优化的暴力"><a href="#解法三：优化的暴力" class="headerlink" title="解法三：优化的暴力"></a>解法三：优化的暴力</h3><p>仍然遍历所有对，但仅使用生成器和使用大小为 k 的堆<code>heapq.nsmallest</code>。 因此，这仅需要$O(k)$的额外内存和$O(mn log k)$的时间。</p><pre><code>def kSmallestPairs(self, nums1, nums2, k):    return map(list, heapq.nsmallest(k, itertools.product(nums1, nums2), key=sum))</code></pre><h3 id="解法四：堆"><a href="#解法四：堆" class="headerlink" title="解法四：堆"></a>解法四：堆</h3><p>不计算整个矩阵，而将每一行变成三元组<code>[u + v，u，v]</code>的生成器，仅在要求计算下一行时才计算下一行，然后将这些生成器与堆合并。 占用 $O(m + k * log(m))$ 的时间复杂度和 $O(m)$ 的空间复杂度。</p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    streams = map(lambda u: ([u+v, u, v] for v in nums2), nums1)    stream = heapq.merge(*streams)    return [suv[1:] for suv in itertools.islice(stream, k)]</code></pre><h3 id="解法五：优先队列"><a href="#解法五：优先队列" class="headerlink" title="解法五：优先队列"></a>解法五：优先队列</h3><p>它仅从矩阵左上角的第一对开始，然后根据需要从那里开始扩展。 每当将一对选择为输出结果时，该行中的下一对就会添加到当前选项的优先队列中。 同样，如果所选对是该行中的第一对，则将下一行中的第一对添加到队列中。<br><img src="https://pic.leetcode-cn.com/cba00e2cb2cf8a1158aa8caff0c42259a0263bbb5e623e99c2280da21bdd875d-%E7%BB%84%E5%90%882.png" alt="组合2.png"></p><pre class=" language-python3"><code class="language-python3">class Solution:    def kSmallestPairs(self, nums1, nums2, k):        queue = []        def push(i, j):            if i < len(nums1) and j < len(nums2):                heapq.heappush(queue, [nums1[i] + nums2[j], i, j])        push(0, 0)        pairs = []        while queue and len(pairs) < k:            _, i, j = heapq.heappop(queue)            pairs.append([nums1[i], nums2[j]])            push(i, j + 1)            if j == 0:                push(i + 1, 0)        return pairs</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="45-Jump-Game-II"><a href="#45-Jump-Game-II" class="headerlink" title="45. Jump Game II"></a>45. Jump Game II</h1><h2 id="题目描述（难度：困难）"><a href="#题目描述（难度：困难）" class="headerlink" title="题目描述（难度：困难）"></a>题目描述（难度：困难）</h2><p><img src="https://i.loli.net/2020/02/03/fyHsrJbXAESFC8a.png" alt="45.png"></p><h2 id="解题思路：贪心法则"><a href="#解题思路：贪心法则" class="headerlink" title="解题思路：贪心法则"></a>解题思路：贪心法则</h2><p>当我们每次位于 i 位置时，我们会困惑于该跳到哪个位置是最优的。因此可采取以下贪心法则：如果跳到位置 j 时下一次可以跳得最远，那么我们就选取该位置。如下图所示，当我们位于初始位置 2（i = 0） 时，可以跳到黄色位置，由于 3 比 1 跳得远，因此我们选择跳到 3 的位置。</p><p><img src="https://i.loli.net/2020/02/03/GeP7vgIOfTkt3jN.png" alt="p1.png"></p><p>现在我们位于位置 3 ，黄色点是可以跳到的位置，因为跳到 4 时可以跳得更远，因此我们选择跳到位置 4 。</p><p><img src="https://i.loli.net/2020/02/03/xstYGP4vLiWfqbO.png" alt="p2.png"></p><h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><pre><code>class Solution:    def jump(self, nums: List[int]) -&gt; int:        steps = 0        end = 0        maxposition = 0  # maxposition 为每次跳跃最优的位置        for i in range(len(nums) - 1):            maxposition = max(maxposition, nums[i] + i)            # 当我们找到了可以跳的最优位置，step + 1            if i == end:                end = maxposition                steps += 1        return steps</code></pre><h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul><li>时间复杂度：$ O(N) $。N 是数组的长度，我们遍历了一遍数组。</li><li>空间复杂度：$ O(1) $。我们仅使用了 <code>steps</code>，<code>end</code>，<code>maxpositon</code> 等有限的额外空间。<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2></li><li>跳跃游戏</li><li>跳跃游戏 Ⅲ</li><li>跳跃游戏 Ⅳ</li><li>跳跃游戏 Ⅴ</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
           
-          <category> LeetCode题解 </category>
+          <category> LeetCode </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Python </tag>
+            <tag> Leetcode </tag>
             
-            <tag> 题解 </tag>
+            <tag> 数组 </tag>
+            
+            <tag> 贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>373. Find K Pairs with Smallest Sums</title>
+      <link href="/2020/01/24/373.find-k-pairs-with-smallest-sums/"/>
+      <url>/2020/01/24/373.find-k-pairs-with-smallest-sums/</url>
+      
+        <content type="html"><![CDATA[<h3 id="解法一：暴力"><a href="#解法一：暴力" class="headerlink" title="解法一：暴力"></a>解法一：暴力</h3><p>枚举所有组合，按照和排序，最后返回前 K 项。<br><img src="https://pic.leetcode-cn.com/c6e8cfde2aa085ed377abba0373124247626f6ecbec347aa80f156ac7ff4f78d-%E7%BB%84%E5%90%881.png" alt="组合1.png"></p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    return sorted(itertools.product(nums1, nums2), key=sum)[:k]</code></pre><h3 id="解法二：暴力标准解"><a href="#解法二：暴力标准解" class="headerlink" title="解法二：暴力标准解"></a>解法二：暴力标准解</h3><p>这个解法更加标准，因为上面的解法生成的是元组不是列表。</p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    return map(list, sorted(itertools.product(nums1, nums2), key=sum)[:k])</code></pre><h3 id="解法三：优化的暴力"><a href="#解法三：优化的暴力" class="headerlink" title="解法三：优化的暴力"></a>解法三：优化的暴力</h3><p>仍然遍历所有对，但仅使用生成器和使用大小为 k 的堆<code>heapq.nsmallest</code>。 因此，这仅需要$O(k)$的额外内存和$O(mn log k)$的时间。</p><pre><code>def kSmallestPairs(self, nums1, nums2, k):    return map(list, heapq.nsmallest(k, itertools.product(nums1, nums2), key=sum))</code></pre><h3 id="解法四：堆"><a href="#解法四：堆" class="headerlink" title="解法四：堆"></a>解法四：堆</h3><p>不计算整个矩阵，而将每一行变成三元组<code>[u + v，u，v]</code>的生成器，仅在要求计算下一行时才计算下一行，然后将这些生成器与堆合并。 占用 $O(m + k * log(m))$ 的时间复杂度和 $O(m)$ 的空间复杂度。</p><pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):    streams = map(lambda u: ([u+v, u, v] for v in nums2), nums1)    stream = heapq.merge(*streams)    return [suv[1:] for suv in itertools.islice(stream, k)]</code></pre><h3 id="解法五：优先队列"><a href="#解法五：优先队列" class="headerlink" title="解法五：优先队列"></a>解法五：优先队列</h3><p>它仅从矩阵左上角的第一对开始，然后根据需要从那里开始扩展。 每当将一对选择为输出结果时，该行中的下一对就会添加到当前选项的优先队列中。 同样，如果所选对是该行中的第一对，则将下一行中的第一对添加到队列中。<br><img src="https://pic.leetcode-cn.com/cba00e2cb2cf8a1158aa8caff0c42259a0263bbb5e623e99c2280da21bdd875d-%E7%BB%84%E5%90%882.png" alt="组合2.png"></p><pre class=" language-python3"><code class="language-python3">class Solution:    def kSmallestPairs(self, nums1, nums2, k):        queue = []        def push(i, j):            if i < len(nums1) and j < len(nums2):                heapq.heappush(queue, [nums1[i] + nums2[j], i, j])        push(0, 0)        pairs = []        while queue and len(pairs) < k:            _, i, j = heapq.heappop(queue)            pairs.append([nums1[i], nums2[j]])            push(i, j + 1)            if j == 0:                push(i + 1, 0)        return pairs</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
             
             <tag> 优先队列 </tag>
             
