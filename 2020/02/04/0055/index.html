@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="45. Jump Game II, Hexo">
+    <meta name="keywords" content="55. Jump Game, Hexo">
     <meta name="description" content="一举攻破跳跃游戏的全部题目">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>45. Jump Game II | Hexo</title>
+    <title>55. Jump Game | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">45. Jump Game II</h1>
+                    <h1 class="description center-align post-title">55. Jump Game</h1>
                 </div>
             </div>
         </div>
@@ -426,16 +426,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/Python3/">
+                                <span class="chip bg-color">Python3</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">贪心算法</span>
+                            </a>
+                        
                             <a href="/tags/LeetCode/">
                                 <span class="chip bg-color">LeetCode</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                <span class="chip bg-color">数组</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                <span class="chip bg-color">贪心</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-03
+                    2020-02-04
                 </div>
                 
 
@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    402
+                    266
                 </div>
                 
 
@@ -491,33 +491,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="45-Jump-Game-II"><a href="#45-Jump-Game-II" class="headerlink" title="45. Jump Game II"></a>45. Jump Game II</h1><h3 id="题目描述（难度：困难）"><a href="#题目描述（难度：困难）" class="headerlink" title="题目描述（难度：困难）"></a>题目描述（难度：困难）</h3><p><img src="https://i.loli.net/2020/02/03/fyHsrJbXAESFC8a.png" alt=""></p>
-<h3 id="解题思路：贪心法则"><a href="#解题思路：贪心法则" class="headerlink" title="解题思路：贪心法则"></a>解题思路：贪心法则</h3><p>当我们每次位于 i 位置时，我们会困惑于该跳到哪个位置是最优的。因此可采取以下贪心法则：如果跳到位置 j 时下一次可以跳得最远，那么我们就选取该位置。如下图所示，当我们位于初始位置 2（i = 0） 时，可以跳到黄色位置，由于 3 比 1 跳得远，因此我们选择跳到 3 的位置。</p>
-<p><img src="https://i.loli.net/2020/02/03/GeP7vgIOfTkt3jN.png" alt="fig 1"></p>
-<p>现在我们位于位置 3 ，黄色点是可以跳到的位置，因为跳到 4 时可以跳得更远，因此我们选择跳到位置 4 。</p>
-<p><img src="https://i.loli.net/2020/02/03/xstYGP4vLiWfqbO.png" alt="fig 2"></p>
-<h3 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h3><pre><code>class Solution:
-    def jump(self, nums: List[int]) -&gt; int:
-        steps = 0
-        end = 0
-        maxposition = 0  # maxposition 为每次跳跃最优的位置
-        for i in range(len(nums) - 1):
-            maxposition = max(maxposition, nums[i] + i)
-            # 当我们找到了可以跳的最优位置，step + 1
-            if i == end:
-                end = maxposition
-                steps += 1
-        return steps</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)。N 是数组的长度，我们遍历了一遍数组。</li>
-<li>空间复杂度：O(1)。我们仅使用了 <code>steps</code>，<code>end</code>，<code>maxpositon</code> 等有限的额外空间。</li>
+                <h1 id="1344-Jump-Game-V"><a href="#1344-Jump-Game-V" class="headerlink" title="1344. Jump Game V"></a>1344. Jump Game V</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/04/cAE6rgJXDdsLm1B.png" alt=""></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们设定初始值 <code>max_i</code> 为当前可跳的最远位置，遍历一遍数组，维护 <code>max_i</code>。遍历结束后，如果 <code>max_i &gt;= len(nums) - 1</code>，这时说明能够到达最后位置,返回 <code>True</code>，否则返回 <code>False</code>。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">canJump</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 初始化能到达的最远位置</span>
+        max_i <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> max_i <span class="token operator">>=</span> i <span class="token operator">and</span> i <span class="token operator">+</span> num <span class="token operator">></span> max_i<span class="token punctuation">:</span>
+                max_i <span class="token operator">=</span> i <span class="token operator">+</span> num
+        <span class="token keyword">return</span> max_i <span class="token operator">>=</span> i <span class="token comment" spellcheck="true"># >= 是因为可能会跳出界</span></code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>时间复杂度：O(N)。</li>
+<li>空间复杂度：O(1)。</li>
 </ul>
 <h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul>
-<li>跳跃游戏</li>
-<li>跳跃游戏 Ⅲ</li>
+<li><a href="//0045.md">跳跃游戏 Ⅱ</a></li>
+<li><a href="//1306.md">跳跃游戏 Ⅲ</a></li>
 <li>跳跃游戏 Ⅳ</li>
 <li>跳跃游戏 Ⅴ</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>代码比较简单，思路要理清~加油！</p>
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>动态规划的题目比较难，我们需要吃透几个题目，慢慢去体会~加油！</p>
 <p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
 <script>
@@ -563,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/03/0045/">http://ml-zimingmeng.github.io/2020/02/03/0045/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/04/0055/">http://ml-zimingmeng.github.io/2020/02/04/0055/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,16 +595,16 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/Python3/">
+                                    <span class="chip bg-color">Python3</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">贪心算法</span>
+                                </a>
+                            
                                 <a href="/tags/LeetCode/">
                                     <span class="chip bg-color">LeetCode</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E7%BB%84/">
-                                    <span class="chip bg-color">数组</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                                    <span class="chip bg-color">贪心</span>
                                 </a>
                             
                         </div>
@@ -781,7 +775,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-03T19-03-00',
+        id: '2020-02-04T18-40-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -802,17 +796,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/04/1306/">
+                <a href="/2020/02/04/0055/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="1306. Jump Game III">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="55. Jump Game">
                         
-                        <span class="card-title">1306. Jump Game III</span>
+                        <span class="card-title">55. Jump Game</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -822,9 +817,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -837,19 +832,20 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Python3/">
+                        <span class="chip bg-color">Python3</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">贪心算法</span>
+                    </a>
+                    
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">队列</span>
-                    </a>
-                    
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
                     </a>
                     
                 </div>
@@ -863,24 +859,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/24/0373/">
+                <a href="/2020/02/04/1344/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="373. Find K Pairs with Smallest Sums">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="1344. Jump Game V">
                         
-                        <span class="card-title">373. Find K Pairs with Smallest Sums</span>
+                        <span class="card-title">1344. Jump Game V</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从慢速到快速的五种解法
+                            一举攻破跳跃游戏的全部题目
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
                             </span>
                         <span class="publish-author">
                             
@@ -897,12 +893,16 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Python3/">
+                        <span class="chip bg-color">Python3</span>
+                    </a>
+                    
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">优先队列</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
