@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2020-02-03T11:08:46.009Z</updated>
+  <updated>2020-02-04T10:50:55.466Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>45. Jump Game II</title>
-    <link href="http://ml-zimingmeng.github.io/2020/02/03/45.jump-game-ii/"/>
-    <id>http://ml-zimingmeng.github.io/2020/02/03/45.jump-game-ii/</id>
-    <published>2020-02-03T11:03:00.000Z</published>
-    <updated>2020-02-03T11:08:46.009Z</updated>
+    <title>1344. Jump Game V</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/04/1344/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/04/1344/</id>
+    <published>2020-02-04T10:40:00.000Z</published>
+    <updated>2020-02-04T10:50:55.466Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;45-Jump-Game-II&quot;&gt;&lt;a href=&quot;#45-Jump-Game-II&quot; class=&quot;headerlink&quot; title=&quot;45. Jump Game II&quot;&gt;&lt;/a&gt;45. Jump Game II&lt;/h1&gt;&lt;h2
+          &lt;h1 id=&quot;1344-Jump-Game-V&quot;&gt;&lt;a href=&quot;#1344-Jump-Game-V&quot; class=&quot;headerlink&quot; title=&quot;1344. Jump Game V&quot;&gt;&lt;/a&gt;1344. Jump Game V&lt;/h1&gt;&lt;h3
         
       
     
@@ -39,20 +39,20 @@
       <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
     
     
-      <category term="Leetcode" scheme="http://ml-zimingmeng.github.io/tags/Leetcode/"/>
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
     
-      <category term="数组" scheme="http://ml-zimingmeng.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
     
-      <category term="贪心" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+      <category term="动态规划" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
   <entry>
-    <title>373. Find K Pairs with Smallest Sums</title>
-    <link href="http://ml-zimingmeng.github.io/2020/01/24/373.find-k-pairs-with-smallest-sums/"/>
-    <id>http://ml-zimingmeng.github.io/2020/01/24/373.find-k-pairs-with-smallest-sums/</id>
-    <published>2020-01-23T18:20:00.000Z</published>
-    <updated>2020-02-03T11:10:00.124Z</updated>
+    <title>1306. Jump Game III</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/04/1306/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/04/1306/</id>
+    <published>2020-02-04T02:53:00.000Z</published>
+    <updated>2020-02-04T02:57:58.125Z</updated>
     
     <summary type="html">
     
@@ -60,7 +60,70 @@
       
         
         
-          &lt;h3 id=&quot;解法一：暴力&quot;&gt;&lt;a href=&quot;#解法一：暴力&quot; class=&quot;headerlink&quot; title=&quot;解法一：暴力&quot;&gt;&lt;/a&gt;解法一：暴力&lt;/h3&gt;&lt;p&gt;枚举所有组合，按照和排序，最后返回前 K 项。&lt;br&gt;&lt;img
+          &lt;h1 id=&quot;1306-Jump-Game-III&quot;&gt;&lt;a href=&quot;#1306-Jump-Game-III&quot; class=&quot;headerlink&quot; title=&quot;1306. Jump Game III&quot;&gt;&lt;/a&gt;1306. Jump Game III&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="BFS" scheme="http://ml-zimingmeng.github.io/tags/BFS/"/>
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="队列" scheme="http://ml-zimingmeng.github.io/tags/%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>45. Jump Game II</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/03/0045/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/03/0045/</id>
+    <published>2020-02-03T11:03:00.000Z</published>
+    <updated>2020-02-03T12:14:44.376Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;45-Jump-Game-II&quot;&gt;&lt;a href=&quot;#45-Jump-Game-II&quot; class=&quot;headerlink&quot; title=&quot;45. Jump Game II&quot;&gt;&lt;/a&gt;45. Jump Game II&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="数组" scheme="http://ml-zimingmeng.github.io/tags/%E6%95%B0%E7%BB%84/"/>
+    
+      <category term="贪心" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>373. Find K Pairs with Smallest Sums</title>
+    <link href="http://ml-zimingmeng.github.io/2020/01/24/0373/"/>
+    <id>http://ml-zimingmeng.github.io/2020/01/24/0373/</id>
+    <published>2020-01-23T18:20:00.000Z</published>
+    <updated>2020-02-03T12:14:00.321Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;解法一：暴力&quot;&gt;&lt;a href=&quot;#解法一：暴力&quot; class=&quot;headerlink&quot; title=&quot;解法一：暴力&quot;&gt;&lt;/a&gt;解法一：暴力&lt;/h3&gt;&lt;p&gt;枚举所有组合，按照和排序，最后返回前 K 项。&lt;/p&gt;
+&lt;p&gt;&lt;img
         
       
     
@@ -72,6 +135,8 @@
     
       <category term="优先队列" scheme="http://ml-zimingmeng.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
   </entry>
   
   <entry>
@@ -79,7 +144,7 @@
     <link href="http://ml-zimingmeng.github.io/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/"/>
     <id>http://ml-zimingmeng.github.io/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/</id>
     <published>2019-11-09T14:00:00.000Z</published>
-    <updated>2019-11-11T10:36:49.271Z</updated>
+    <updated>2020-02-03T11:19:25.502Z</updated>
     
     <summary type="html">
     
@@ -97,9 +162,9 @@
       <category term="算法" scheme="http://ml-zimingmeng.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="http://ml-zimingmeng.github.io/tags/Python/"/>
-    
       <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="http://ml-zimingmeng.github.io/tags/Python/"/>
     
       <category term="BFS" scheme="http://ml-zimingmeng.github.io/tags/BFS/"/>
     
@@ -112,7 +177,7 @@
     <link href="http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/"/>
     <id>http://ml-zimingmeng.github.io/2019/11/03/suan-fa-mian-shi-bi-xu-yao-zhu-yi-de-shi/</id>
     <published>2019-11-03T07:53:00.000Z</published>
-    <updated>2019-11-03T07:59:49.057Z</updated>
+    <updated>2020-02-03T11:19:34.939Z</updated>
     
     <summary type="html">
     
@@ -130,11 +195,11 @@
       <category term="面试" scheme="http://ml-zimingmeng.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
     
     
+      <category term="Leetcode" scheme="http://ml-zimingmeng.github.io/tags/Leetcode/"/>
+    
       <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="面试" scheme="http://ml-zimingmeng.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="Leetcode" scheme="http://ml-zimingmeng.github.io/tags/Leetcode/"/>
     
   </entry>
   
