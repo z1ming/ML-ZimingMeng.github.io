@@ -430,12 +430,12 @@
                                 <span class="chip bg-color">Python3</span>
                             </a>
                         
-                            <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">贪心算法</span>
-                            </a>
-                        
                             <a href="/tags/LeetCode/">
                                 <span class="chip bg-color">LeetCode</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">贪心算法</span>
                             </a>
                         
                     </div>
@@ -468,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    266
+                    297
                 </div>
                 
 
@@ -493,7 +493,8 @@
             <div id="articleContent">
                 <h1 id="1344-Jump-Game-V"><a href="#1344-Jump-Game-V" class="headerlink" title="1344. Jump Game V"></a>1344. Jump Game V</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/04/cAE6rgJXDdsLm1B.png" alt=""></p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们设定初始值 <code>max_i</code> 为当前可跳的最远位置，遍历一遍数组，维护 <code>max_i</code>。遍历结束后，如果 <code>max_i &gt;= len(nums) - 1</code>，这时说明能够到达最后位置,返回 <code>True</code>，否则返回 <code>False</code>。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>Python3</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">canJump</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># 初始化能到达的最远位置</span>
         max_i <span class="token operator">=</span> <span class="token number">0</span>
@@ -501,6 +502,19 @@
             <span class="token keyword">if</span> max_i <span class="token operator">>=</span> i <span class="token operator">and</span> i <span class="token operator">+</span> num <span class="token operator">></span> max_i<span class="token punctuation">:</span>
                 max_i <span class="token operator">=</span> i <span class="token operator">+</span> num
         <span class="token keyword">return</span> max_i <span class="token operator">>=</span> i <span class="token comment" spellcheck="true"># >= 是因为可能会跳出界</span></code></pre>
+<p>C++</p>
+<pre class=" language-C++"><code class="language-C++">class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int max_i = 0;
+        for(int i = 0; i<nums.size();i++){
+            if(max_i >= i && i + nums[i] > max_i){
+                max_i = i + nums[i];
+            }
+        }
+        return max_i >= nums.size() - 1;
+    }
+};</code></pre>
 <h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
 <li>时间复杂度：O(N)。</li>
 <li>空间复杂度：O(1)。</li>
@@ -599,12 +613,12 @@
                                     <span class="chip bg-color">Python3</span>
                                 </a>
                             
-                                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">贪心算法</span>
-                                </a>
-                            
                                 <a href="/tags/LeetCode/">
                                     <span class="chip bg-color">LeetCode</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">贪心算法</span>
                                 </a>
                             
                         </div>
@@ -796,30 +810,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/04/0055/">
+                <a href="/2020/02/05/0010/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="55. Jump Game">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="10. Regular Expression Matching">
                         
-                        <span class="card-title">55. Jump Game</span>
+                        <span class="card-title">10. Regular Expression Matching</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一举攻破跳跃游戏的全部题目
+                            教你如何全面考虑所有情况
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -832,7 +845,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -840,8 +852,12 @@
                         <span class="chip bg-color">Python3</span>
                     </a>
                     
-                    <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">贪心算法</span>
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">回溯算法</span>
                     </a>
                     
                     <a href="/tags/LeetCode/">
@@ -897,12 +913,12 @@
                         <span class="chip bg-color">Python3</span>
                     </a>
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                         <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -1090,7 +1106,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.3k</span>&nbsp;字
+                class="white-color">8.8k</span>&nbsp;字
             
             
             
