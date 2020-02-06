@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
+            <tag> 双指针 </tag>
             
             <tag> LeetCode </tag>
             
-            <tag> 双指针 </tag>
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -49,9 +49,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -76,13 +76,13 @@
       
         <tags>
             
+            <tag> LeetCode </tag>
+            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
             
             <tag> 回溯算法 </tag>
-            
-            <tag> LeetCode </tag>
             
         </tags>
       
@@ -107,9 +107,9 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Python3 </tag>
             
             <tag> 贪心算法 </tag>
             
@@ -124,7 +124,7 @@
       <link href="/2020/02/04/0240/"/>
       <url>/2020/02/04/0240/</url>
       
-        <content type="html"><![CDATA[<h1 id="240-Search-a-2D-Matrix-II"><a href="#240-Search-a-2D-Matrix-II" class="headerlink" title="240. Search a 2D Matrix II"></a>240. Search a 2D Matrix II</h1><h3 id="题目描述（难度：困难）"><a href="#题目描述（难度：困难）" class="headerlink" title="题目描述（难度：困难）"></a>题目描述（难度：困难）</h3><p><img src="https://i.loli.net/2020/02/04/OnIFXgYorURdW6s.png" alt=""></p><h3 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h3><p>我们记录每个下标 <code>i</code> 可以最多访问的下标个数，返回最大值就行了。</p><p>如何记录每个下标的最多访问个数呢？我们使用一维动态规划数组 <code>dp</code> 。<strong>dp[i] 表示下标 i 的最多可访问次数</strong>，我们按照高度从低到高的顺序遍历每个下标，<strong>在可跳范围内</strong>，我们更新 <code>dp[i]</code> 的值。状态方程为 $dp[i] = max(dp[idx] + 1, cur)$ ,建议查看 <a href="https://leetcode-cn.com/problems/jump-game-v/solution/yi-wei-dong-tai-gui-hua-tu-jie-python3-by-ml-zimin/" target="_blank" rel="noopener">原题解动图</a> 理解状态方程。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">maxJumps</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> arr<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> d<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>        L <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>        L <span class="token operator">=</span> sorted<span class="token punctuation">(</span>L<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        n <span class="token operator">=</span> len<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> n        <span class="token keyword">for</span> h<span class="token punctuation">,</span> i <span class="token keyword">in</span> L<span class="token punctuation">:</span>            cur <span class="token operator">=</span> <span class="token number">1</span>            <span class="token comment" spellcheck="true"># 向左跳</span>            <span class="token keyword">for</span> idx <span class="token keyword">in</span> range<span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> max<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> i <span class="token operator">-</span> d<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">>=</span> h<span class="token punctuation">:</span>                    <span class="token keyword">break</span>                cur <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cur<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 向右跳</span>            <span class="token keyword">for</span> idx <span class="token keyword">in</span> range<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> min<span class="token punctuation">(</span>n<span class="token punctuation">,</span> i <span class="token operator">+</span> d <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token keyword">if</span> arr<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">>=</span> h<span class="token punctuation">:</span>                    <span class="token keyword">break</span>                cur <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> cur<span class="token punctuation">)</span>            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> cur        <span class="token keyword">return</span><span class="token punctuation">(</span>max<span class="token punctuation">(</span>dp<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：O(NlogN)。我们遍历了一遍数组，复杂度为 O(N)，再最坏条件下，d = N，对于每个下标的时间复杂度为 O(logN)，因此时间复杂度为 O(NlogN)。</li><li>空间复杂度：O(N)。使用了 <code>L</code> 和 <code>dp</code>。</li></ul><h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul><li><a href="//0045.md">跳跃游戏 Ⅱ</a></li><li><a href="//1306.md">跳跃游戏 Ⅲ</a></li><li>跳跃游戏 Ⅳ</li><li>跳跃游戏 Ⅴ</li></ul><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>动态规划的题目比较难，我们需要吃透几个题目，慢慢去体会~加油！</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="240-Search-a-2D-Matrix-II"><a href="#240-Search-a-2D-Matrix-II" class="headerlink" title="240. Search a 2D Matrix II"></a>240. Search a 2D Matrix II</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/06/gVxYfNpzOJZ84jB.png" alt=""><br>解题思路<br>我们从左下角开始遍历，当该值小于 target 值时，向右搜索；大于 target 值时，向上搜索。如果找到 target 则返回 True，否则返回 False。</p><p><img src="https://i.loli.net/2020/02/06/6RJQ1LcpszHojAy.gif" alt="fig 1"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>python 代码：</p><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true"># array 二维列表</span>    <span class="token keyword">def</span> <span class="token function">Find</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> target<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> <span class="token operator">not</span> array<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>        m<span class="token punctuation">,</span> n <span class="token operator">=</span> len<span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        row<span class="token punctuation">,</span> col <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>        <span class="token keyword">while</span> row <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">and</span> col <span class="token operator">&lt;</span> n<span class="token punctuation">:</span>            <span class="token keyword">if</span> array<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">:</span>                col <span class="token operator">+=</span> <span class="token number">1</span>            <span class="token keyword">elif</span> array<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">></span> target<span class="token punctuation">:</span>                row <span class="token operator">-=</span> <span class="token number">1</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                <span class="token keyword">return</span> <span class="token boolean">True</span>        <span class="token keyword">return</span> <span class="token boolean">False</span></code></pre><p>C++ 代码：</p><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">Find</span><span class="token punctuation">(</span><span class="token keyword">int</span> target<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">></span> array<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">int</span> m <span class="token operator">=</span> array<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> n <span class="token operator">=</span> array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> row <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> col <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>row <span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> col <span class="token operator">&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>                col <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>col<span class="token punctuation">]</span> <span class="token operator">></span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>                row <span class="token operator">-</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            <span class="token keyword">else</span><span class="token punctuation">{</span>                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：O(m+n)。m 和 n 分别为行数和列数。最坏情况下，我们从左下角移动到右上角，经过的路径长度为。</li><li>空间复杂度：O(1)。</li></ul><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
       <categories>
@@ -136,11 +136,11 @@
       
         <tags>
             
+            <tag> LeetCode </tag>
+            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> LeetCode </tag>
             
         </tags>
       
@@ -165,11 +165,11 @@
       
         <tags>
             
+            <tag> LeetCode </tag>
+            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
-            
-            <tag> LeetCode </tag>
             
         </tags>
       
@@ -281,9 +281,9 @@
             
             <tag> BFS </tag>
             
-            <tag> Python </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> Python </tag>
             
             <tag> DFS </tag>
             
