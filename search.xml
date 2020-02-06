@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>13. Roman to Integer</title>
+      <link href="/2020/02/07/0013/"/>
+      <url>/2020/02/07/0013/</url>
+      
+        <content type="html"><![CDATA[<h1 id="13-Roman-to-Integer"><a href="#13-Roman-to-Integer" class="headerlink" title="13. Roman to Integer"></a>13. Roman to Integer</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/07/h29b5oQBwxz1GRZ.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>通过观察我们发现，<strong>只有在遇到特殊情况时，两个字符中左边的字符小于右边的字符，且等于右边的字符代表的数减左边字符代表的数</strong>。 比如 <code>CM</code> 等于 $1000 - 100$，<code>XC</code> 等于 $100 - 10$…</p><p>因此，我们将 <code>字符：数值</code> 存在 <code>Roman2Int</code> 的哈希表中。然后从左到右遍历每个字符，如果 <code>s[i] &lt; s[i+1]</code>，就将结果减去 <code>s[i]</code> 代表的数字；否则，将结果加上 <code>s[i]</code> 代表的数字。</p><p><img src="https://i.loli.net/2020/02/07/nOFuzgEqVbNJ6iL.gif" alt="fig 1"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">romanToInt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>        Roman2Int <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'I'</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'V'</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'X'</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'L'</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token string">'C'</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token string">'D'</span><span class="token punctuation">:</span><span class="token number">500</span><span class="token punctuation">,</span><span class="token string">'M'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">}</span>        Int <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> Roman2Int<span class="token punctuation">[</span>s<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> Roman2Int<span class="token punctuation">[</span>s<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>                Int <span class="token operator">-=</span> Roman2Int<span class="token punctuation">[</span>s<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                Int <span class="token operator">+=</span> Roman2Int<span class="token punctuation">[</span>s<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span>        <span class="token keyword">return</span> Int <span class="token operator">+</span> Roman2Int<span class="token punctuation">[</span>s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span></code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(N)$。遍历了一遍数组。</li><li>空间复杂度：$O(1)$。使用了 <code>Int</code>。</li></ul><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 哈希表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>42. Trapping Rain Water</title>
       <link href="/2020/02/06/0042/"/>
       <url>/2020/02/06/0042/</url>
@@ -20,11 +49,11 @@
       
         <tags>
             
-            <tag> 双指针 </tag>
+            <tag> 动态规划 </tag>
             
             <tag> LeetCode </tag>
             
-            <tag> 动态规划 </tag>
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -49,9 +78,9 @@
       
         <tags>
             
-            <tag> 双指针 </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -76,13 +105,13 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
             
             <tag> 回溯算法 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -107,9 +136,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> Python3 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 贪心算法 </tag>
             
@@ -136,11 +165,11 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -165,11 +194,11 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
