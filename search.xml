@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>15. 3Sum</title>
+      <link href="/2020/02/07/0015/"/>
+      <url>/2020/02/07/0015/</url>
+      
+        <content type="html"><![CDATA[<h1 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="15. 3Sum"></a>15. 3Sum</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/07/NqMmn6TCGHwb2iA.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><strong>1. 排序</strong>（$O(NlogN)$）<br>为什么要排序呢？我想是不是这样：</p><ul><li>排序后相同的数会挨在一起，所以方便接下来的操作来避免重复；</li><li>右边的数比左边的大，方便比较。</li></ul><p><strong>2. 遍历</strong>（$O(N^2)$）<br>我们定义当前下标 <code>k</code>，<code>i, j</code> 分别位于 <code>k + 1, len(nums) - 1</code>的位置。若 <code>k = 1</code>，如下图所示：</p><p><img src="https://pic.leetcode-cn.com/26f5fa65fe52bf8b7c2397f2a9ce4efe0fbb29b939ad411c938e87b06022a6b9-file_1581062450524" alt="1.png"></p><p>从左到右遍历，对于每个 <code>k</code> 值：</p><ul><li>如果三数之和大于 <code>0</code>，<code>j</code> 左移会使得和减小，甚至等于 <code>0</code>，故 <code>j</code> 左移；</li><li>如果三数之和小于 <code>0</code>，<code>i</code> 右移会使得和增大，甚至等于 <code>0</code>，故 <code>i</code> 右移；</li><li>如果三数之和等于 <code>0</code>，将 <code>[nums[i],nums[j],nums[k]]</code> 加入到结果中，<code>i</code> 右移，<code>j</code> 左移，寻找下一组可能结果。</li></ul><p>移动的过程中，如果碰到的数与前一个数相同，我们跳过本次循环，避免结果重复！</p><p><img src="https://i.loli.net/2020/02/07/sC1pl5etox6B9fM.gif" alt="fig 1"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">threeSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">break</span> <span class="token comment" spellcheck="true"># k后面的数肯定大于零，跳出循环</span>            <span class="token keyword">if</span> k <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">and</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">continue</span>             i<span class="token punctuation">,</span> j <span class="token operator">=</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>            <span class="token keyword">while</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>                    res<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                    i <span class="token operator">+=</span> <span class="token number">1</span>                    j <span class="token operator">-=</span> <span class="token number">1</span>                    <span class="token keyword">while</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">and</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>i <span class="token operator">+=</span> <span class="token number">1</span>  <span class="token comment" spellcheck="true"># 相同的数跳过</span>                    <span class="token keyword">while</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">and</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>j <span class="token operator">-=</span> <span class="token number">1</span>  <span class="token comment" spellcheck="true"># 相同的数跳过</span>                <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>                    i <span class="token operator">+=</span> <span class="token number">1</span>                    <span class="token keyword">while</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">and</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>i <span class="token operator">+=</span> <span class="token number">1</span>                 <span class="token keyword">else</span><span class="token punctuation">:</span>                    j <span class="token operator">-=</span> <span class="token number">1</span>                    <span class="token keyword">while</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">and</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>j <span class="token operator">-=</span> <span class="token number">1</span>        <span class="token keyword">return</span> res</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(N^2)$。</li><li>空间复杂度：$O(1)$。<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3></li></ul><p>有比时间复杂度为 $O(n^2)$ 更低的算法吗？事实上是有的，比如 <a href="https://en.wikipedia.org/wiki/3SUM" target="_blank" rel="noopener">维基百科</a> 中的 $O(n^2/(log n/ log log n)^2/3)$ 等。但是对于刷题人来讲，掌握 $O(n^2)$ 的解法我觉得已经足够。😄</p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>12. Integer to Roman</title>
+      <link href="/2020/02/07/0012/"/>
+      <url>/2020/02/07/0012/</url>
+      
+        <content type="html"><![CDATA[<h1 id="12-Integer-to-Roman"><a href="#12-Integer-to-Roman" class="headerlink" title="12. Integer to Roman"></a>12. Integer to Roman</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/07/2uUAOKCNxHLEp9n.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们每次尽量使用最大的数来表示，这个方法符合贪心法则。比如对于 1994 这个数，如果我们每次尽量用最大的数来表示，依次选 1000，900，90，4，会得到正确结果 <code>MCMXCIV</code>。</p><p>所以，我们将哈希表按照从大到小的顺序排列，然后遍历哈希表，直到表示完整个输入。</p><p><img src="https://i.loli.net/2020/02/07/HWvbXJs8yGtSq6T.gif" alt="fig 1"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">intToRoman</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> num<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>        <span class="token comment" spellcheck="true"># 使用哈希表，按照从大到小顺序排列</span>        hashmap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1000</span><span class="token punctuation">:</span><span class="token string">'M'</span><span class="token punctuation">,</span> <span class="token number">900</span><span class="token punctuation">:</span><span class="token string">'CM'</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">:</span><span class="token string">'D'</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">:</span><span class="token string">'CD'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">:</span><span class="token string">'C'</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">:</span><span class="token string">'XC'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">:</span><span class="token string">'L'</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">:</span><span class="token string">'XL'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">:</span><span class="token string">'X'</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">:</span><span class="token string">'IX'</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">:</span><span class="token string">'V'</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">:</span><span class="token string">'IV'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token string">'I'</span><span class="token punctuation">}</span>        res <span class="token operator">=</span> <span class="token string">''</span>        <span class="token keyword">for</span> key <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span>            <span class="token keyword">if</span> num <span class="token operator">//</span> key <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>                count <span class="token operator">=</span> num <span class="token operator">//</span> key  <span class="token comment" spellcheck="true"># 比如输入4000，count 为 4</span>                res <span class="token operator">+=</span> hashmap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">*</span> count                 num <span class="token operator">%=</span> key        <span class="token keyword">return</span> res</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：$O(1)$。最坏条件下，循环的次数为哈希表的长度。</li><li>空间复杂度：$O(1)$。</li></ul><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哈希表 </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 贪心算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>13. Roman to Integer</title>
       <link href="/2020/02/07/0013/"/>
       <url>/2020/02/07/0013/</url>
@@ -20,11 +76,11 @@
       
         <tags>
             
+            <tag> 哈希表 </tag>
+            
             <tag> LeetCode </tag>
             
             <tag> 数组 </tag>
-            
-            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -49,11 +105,11 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> LeetCode </tag>
             
             <tag> 双指针 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -105,13 +161,13 @@
       
         <tags>
             
-            <tag> Python3 </tag>
+            <tag> LeetCode </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> 回溯算法 </tag>
+            <tag> Python3 </tag>
             
-            <tag> LeetCode </tag>
+            <tag> 回溯算法 </tag>
             
         </tags>
       
@@ -136,11 +192,11 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> LeetCode </tag>
             
             <tag> 贪心算法 </tag>
+            
+            <tag> Python3 </tag>
             
         </tags>
       
@@ -165,11 +221,11 @@
       
         <tags>
             
-            <tag> Python3 </tag>
+            <tag> LeetCode </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> LeetCode </tag>
+            <tag> Python3 </tag>
             
         </tags>
       
@@ -194,11 +250,11 @@
       
         <tags>
             
-            <tag> Python3 </tag>
+            <tag> LeetCode </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> LeetCode </tag>
+            <tag> Python3 </tag>
             
         </tags>
       
@@ -265,6 +321,33 @@
     
     
     <entry>
+      <title>1. Two Sum</title>
+      <link href="/2020/01/31/0001/"/>
+      <url>/2020/01/31/0001/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/07/drzu8OcZ9VhbKoG.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>通过迭代将元素添加到哈希表中，同时我们比较该元素的对应元素是否已经存在与哈希表中，如果存在，我们直接返回答案。</p><p><img src="https://i.loli.net/2020/02/07/COeJNI5itlf8qLV.gif" alt="fig 1"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>        hashmap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>        <span class="token keyword">for</span> idx<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> target <span class="token operator">-</span> num <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span>                <span class="token keyword">return</span> <span class="token punctuation">[</span>hashmap<span class="token punctuation">[</span>target <span class="token operator">-</span> num<span class="token punctuation">]</span><span class="token punctuation">,</span>idx<span class="token punctuation">]</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> idx</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：O(N)</li><li>空间复杂度：O(N)</li></ul><h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><p>不妨我们趁热打铁，看看进阶题目！</p><ul><li>15.三数之和</li><li>18.四数之和</li></ul><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哈希表 </tag>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>373. Find K Pairs with Smallest Sums</title>
       <link href="/2020/01/24/0373/"/>
       <url>/2020/01/24/0373/</url>
@@ -310,9 +393,9 @@
             
             <tag> BFS </tag>
             
-            <tag> 算法 </tag>
-            
             <tag> Python </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> DFS </tag>
             
