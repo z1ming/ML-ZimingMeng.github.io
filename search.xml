@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>从零学 C++：指针总结</title>
+      <link href="/2020/02/08/cpp-p04l02/"/>
+      <url>/2020/02/08/cpp-p04l02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="从零学-C-：指针总结"><a href="#从零学-C-：指针总结" class="headerlink" title="从零学 C++：指针总结"></a>从零学 C++：指针总结</h1><blockquote><p>看了几天 C++，没想到那个讲话的老头是 C++ 创始人…</p></blockquote><h3 id="指针是什么？"><a href="#指针是什么？" class="headerlink" title="指针是什么？"></a>指针是什么？</h3><p>C++ 创始人 Bjarne 这样说：</p><p>“Dennis Ritchie 对于 C 的基本机器模型有一个很好的想法。他认为对于内存对象的所有数据序列，可以通过指针来引用他们，这些指针是类型为 so 的机器地址。指针其实是机器地址，它是一段内存大小为 n 的引用。指针在编译的时候与类型关联，以便使人们知道它要指向的是整数，或者字符串等。C++ 采用 C 的内存模型，假如要在指向的整数旁边增加一个整数，那么我们可以将内存中的字段加一或者减一。这就是指针，它是在编译时具有关联类型的机器地址。”</p><h3 id="从代码学指针"><a href="#从代码学指针" class="headerlink" title="从代码学指针"></a>从代码学指针</h3><p>废话不多说，看一段代码：</p><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*在这个例子中，我们实现了一个函数，这个函数可以计算输入的正弦和余弦值，并返回。其实现过程如下：    导入标准库 iostream    导入 math.h 库以使用三角函数    创建一个具有三个参数的函数：_sin，_cos 和 angle。所有        参数都是双精度类型    该函数的返回类型无效    将输入参数（角度变量除外）声明为双精度类型的指针    创建 main 函数    声明三个双变量：角度，_sin，_cos    要求用户通过cin来输入角度值    调用三角函数（通过引用传递sin和cos变量）    在控制台中打印结果*/</span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span><span class="token keyword">void</span> <span class="token function">trigonometry</span><span class="token punctuation">(</span><span class="token keyword">double</span> angle<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>_sin<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>_cos<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token operator">*</span>_sin <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token operator">*</span>_cos <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">double</span> angle<span class="token punctuation">,</span> _sin<span class="token punctuation">,</span> _cos<span class="token punctuation">;</span>    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Write angle in radians:"</span><span class="token punctuation">;</span>    std<span class="token operator">::</span>cin <span class="token operator">>></span> angle<span class="token punctuation">;</span>    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">" Trigonometry values are: "</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>    <span class="token function">trigonometry</span><span class="token punctuation">(</span>angle<span class="token punctuation">,</span> <span class="token operator">&amp;</span>_sin<span class="token punctuation">,</span> <span class="token operator">&amp;</span>_cos<span class="token punctuation">)</span><span class="token punctuation">;</span>    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Sine is: "</span><span class="token operator">&lt;&lt;</span> _sin <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Cosine is: "</span><span class="token operator">&lt;&lt;</span> _cos <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul><li>从零学 C++：链表总结</li></ul><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>15. 3Sum</title>
       <link href="/2020/02/07/0015/"/>
       <url>/2020/02/07/0015/</url>
@@ -47,9 +74,9 @@
       
         <tags>
             
-            <tag> 哈希表 </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> 哈希表 </tag>
             
             <tag> 贪心算法 </tag>
             
@@ -76,9 +103,9 @@
       
         <tags>
             
-            <tag> 哈希表 </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> 哈希表 </tag>
             
             <tag> 数组 </tag>
             
@@ -105,11 +132,11 @@
       
         <tags>
             
+            <tag> 动态规划 </tag>
+            
             <tag> LeetCode </tag>
             
             <tag> 双指针 </tag>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -161,13 +188,13 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
+            <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> Python3 </tag>
-            
             <tag> 回溯算法 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -192,11 +219,11 @@
       
         <tags>
             
+            <tag> Python3 </tag>
+            
             <tag> LeetCode </tag>
             
             <tag> 贪心算法 </tag>
-            
-            <tag> Python3 </tag>
             
         </tags>
       
@@ -221,11 +248,11 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
+            <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> Python3 </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -250,11 +277,11 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
+            <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
             
-            <tag> Python3 </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -337,9 +364,9 @@
       
         <tags>
             
-            <tag> 哈希表 </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> 哈希表 </tag>
             
         </tags>
       
@@ -393,9 +420,9 @@
             
             <tag> BFS </tag>
             
-            <tag> Python </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> Python </tag>
             
             <tag> DFS </tag>
             

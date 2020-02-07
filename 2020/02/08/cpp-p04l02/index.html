@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="1. Two Sum, Z1m">
-    <meta name="description" content="一网打尽从两数之和到四数之和">
+    <meta name="keywords" content="从零学 C++：指针总结, Z1m">
+    <meta name="description" content="Udacity C++ 学习笔记">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>1. Two Sum | Z1m</title>
+    <title>从零学 C++：指针总结 | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">1. Two Sum</h1>
+                    <h1 class="description center-align post-title">从零学 C++：指针总结</h1>
                 </div>
             </div>
         </div>
@@ -426,12 +426,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
+                            <a href="/tags/%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">指针</span>
                             </a>
                         
                     </div>
@@ -442,8 +442,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode/" class="post-category">
-                                LeetCode
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-31
+                    2020-02-08
                 </div>
                 
 
@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    219
+                    582
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -487,25 +487,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/07/drzu8OcZ9VhbKoG.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>通过迭代将元素添加到哈希表中，同时我们比较该元素的对应元素是否已经存在与哈希表中，如果存在，我们直接返回答案。</p>
-<p><img src="https://i.loli.net/2020/02/07/COeJNI5itlf8qLV.gif" alt="fig 1"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        hashmap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        <span class="token keyword">for</span> idx<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> target <span class="token operator">-</span> num <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token punctuation">[</span>hashmap<span class="token punctuation">[</span>target <span class="token operator">-</span> num<span class="token punctuation">]</span><span class="token punctuation">,</span>idx<span class="token punctuation">]</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> idx</code></pre>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)</li>
-<li>空间复杂度：O(N)</li>
-</ul>
-<h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><p>不妨我们趁热打铁，看看进阶题目！</p>
-<ul>
-<li>15.三数之和</li>
-<li>18.四数之和</li>
+                <h1 id="从零学-C-：指针总结"><a href="#从零学-C-：指针总结" class="headerlink" title="从零学 C++：指针总结"></a>从零学 C++：指针总结</h1><blockquote>
+<p>看了几天 C++，没想到那个讲话的老头是 C++ 创始人…</p>
+</blockquote>
+<h3 id="指针是什么？"><a href="#指针是什么？" class="headerlink" title="指针是什么？"></a>指针是什么？</h3><p>C++ 创始人 Bjarne 这样说：</p>
+<p>“Dennis Ritchie 对于 C 的基本机器模型有一个很好的想法。他认为对于内存对象的所有数据序列，可以通过指针来引用他们，这些指针是类型为 so 的机器地址。指针其实是机器地址，它是一段内存大小为 n 的引用。指针在编译的时候与类型关联，以便使人们知道它要指向的是整数，或者字符串等。C++ 采用 C 的内存模型，假如要在指向的整数旁边增加一个整数，那么我们可以将内存中的字段加一或者减一。这就是指针，它是在编译时具有关联类型的机器地址。”</p>
+<h3 id="从代码学指针"><a href="#从代码学指针" class="headerlink" title="从代码学指针"></a>从代码学指针</h3><p>废话不多说，看一段代码：</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+在这个例子中，我们实现了一个函数，这个函数可以计算输入的正弦和余弦值，并返回。
+
+其实现过程如下：
+    导入标准库 iostream
+    导入 math.h 库以使用三角函数
+    创建一个具有三个参数的函数：_sin，_cos 和 angle。所有
+        参数都是双精度类型
+    该函数的返回类型无效
+    将输入参数（角度变量除外）声明为双精度类型的指针
+    创建 main 函数
+    声明三个双变量：角度，_sin，_cos
+    要求用户通过cin来输入角度值
+    调用三角函数（通过引用传递sin和cos变量）
+    在控制台中打印结果
+*/</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+
+<span class="token keyword">void</span> <span class="token function">trigonometry</span><span class="token punctuation">(</span><span class="token keyword">double</span> angle<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>_sin<span class="token punctuation">,</span> <span class="token keyword">double</span> <span class="token operator">*</span>_cos<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token operator">*</span>_sin <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>_cos <span class="token operator">=</span> std<span class="token operator">::</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">double</span> angle<span class="token punctuation">,</span> _sin<span class="token punctuation">,</span> _cos<span class="token punctuation">;</span>
+
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Write angle in radians:"</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cin <span class="token operator">>></span> angle<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">" Trigonometry values are: "</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token function">trigonometry</span><span class="token punctuation">(</span>angle<span class="token punctuation">,</span> <span class="token operator">&amp;</span>_sin<span class="token punctuation">,</span> <span class="token operator">&amp;</span>_cos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Sine is: "</span><span class="token operator">&lt;&lt;</span> _sin <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Cosine is: "</span><span class="token operator">&lt;&lt;</span> _cos <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul>
+<li>从零学 C++：链表总结</li>
 </ul>
 <p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
@@ -552,7 +577,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/01/31/0001/">http://ml-zimingmeng.github.io/2020/01/31/0001/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/08/cpp-p04l02/">http://ml-zimingmeng.github.io/2020/02/08/cpp-p04l02/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,12 +615,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
+                                <a href="/tags/%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">指针</span>
                                 </a>
                             
                         </div>
@@ -766,7 +791,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-01-31T13-04-00',
+        id: '2020-02-08T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -787,54 +812,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/03/0045/">
+                <a href="/2020/02/08/cpp-p04l02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="45. Jump Game II">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="从零学 C++：指针总结">
                         
-                        <span class="card-title">45. Jump Game II</span>
+                        <span class="card-title">从零学 C++：指针总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一举攻破跳跃游戏的全部题目
+                            Udacity C++ 学习笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                        <span class="chip bg-color">贪心</span>
+                    <a href="/tags/%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">指针</span>
                     </a>
                     
                 </div>
@@ -848,24 +871,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/24/0373/">
+                <a href="/2020/02/07/0015/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="373. Find K Pairs with Smallest Sums">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="15. 3Sum">
                         
-                        <span class="card-title">373. Find K Pairs with Smallest Sums</span>
+                        <span class="card-title">15. 3Sum</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从慢速到快速的五种解法
+                            一举攻破两数之和到四数之和
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
                             </span>
                         <span class="publish-author">
                             
@@ -886,8 +909,8 @@
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">优先队列</span>
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
                     </a>
                     
                 </div>
