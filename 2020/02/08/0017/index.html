@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="373. Find K Pairs with Smallest Sums, Z1m">
-    <meta name="description" content="从慢速到快速的五种解法">
+    <meta name="keywords" content="17. Letter Combinations of a Phone Number, Z1m">
+    <meta name="description" content="有回溯的地方，就有迭代...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>373. Find K Pairs with Smallest Sums | Z1m</title>
+    <title>17. Letter Combinations of a Phone Number | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">373. Find K Pairs with Smallest Sums</h1>
+                    <h1 class="description center-align post-title">17. Letter Combinations of a Phone Number</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,12 @@
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                                <span class="chip bg-color">优先队列</span>
+                            <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">回溯算法</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%98%9F%E5%88%97/">
+                                <span class="chip bg-color">队列</span>
                             </a>
                         
                     </div>
@@ -455,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-24
+                    2020-02-08
                 </div>
                 
 
@@ -464,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    533
+                    573
                 </div>
                 
 
@@ -487,40 +491,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="解法一：暴力"><a href="#解法一：暴力" class="headerlink" title="解法一：暴力"></a>解法一：暴力</h3><p>枚举所有组合，按照和排序，最后返回前 K 项。</p>
-<p><img src="https://i.loli.net/2020/02/03/jWNcHnoGpazt7wT.png" alt="fig 1"></p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    return sorted(itertools.product(nums1, nums2), key=sum)[:k]</code></pre>
-<h3 id="解法二：暴力标准解"><a href="#解法二：暴力标准解" class="headerlink" title="解法二：暴力标准解"></a>解法二：暴力标准解</h3><p>这个解法更加标准，因为上面的解法生成的是元组不是列表。</p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    return map(list, sorted(itertools.product(nums1, nums2), key=sum)[:k])</code></pre>
-<h3 id="解法三：优化的暴力"><a href="#解法三：优化的暴力" class="headerlink" title="解法三：优化的暴力"></a>解法三：优化的暴力</h3><p>仍然遍历所有对，但仅使用生成器和使用大小为 k 的堆<code>heapq.nsmallest</code>。 因此，这仅需要 O(k) 的额外内存和 O(mn log k) 的时间。</p>
-<pre><code>def kSmallestPairs(self, nums1, nums2, k):
-    return map(list, heapq.nsmallest(k, itertools.product(nums1, nums2), key=sum))</code></pre><h3 id="解法四：堆"><a href="#解法四：堆" class="headerlink" title="解法四：堆"></a>解法四：堆</h3><p>不计算整个矩阵，而将每一行变成三元组<code>[u + v，u，v]</code>的生成器，仅在要求计算下一行时才计算下一行，然后将这些生成器与堆合并。 占用 O(m + k * log(m)) 的时间复杂度和 O(m) 的空间复杂度。</p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    streams = map(lambda u: ([u+v, u, v] for v in nums2), nums1)
-    stream = heapq.merge(*streams)
-    return [suv[1:] for suv in itertools.islice(stream, k)]</code></pre>
-<h3 id="解法五：优先队列"><a href="#解法五：优先队列" class="headerlink" title="解法五：优先队列"></a>解法五：优先队列</h3><p>它仅从矩阵左上角的第一对开始，然后根据需要从那里开始扩展。 每当将一对选择为输出结果时，该行中的下一对就会添加到当前选项的优先队列中。 同样，如果所选对是该行中的第一对，则将下一行中的第一对添加到队列中。</p>
-<p><img src="https://i.loli.net/2020/02/03/u6yVbrnkLpZj1Io.png" alt="fig 2"></p>
-<pre class=" language-python3"><code class="language-python3">class Solution:
-    def kSmallestPairs(self, nums1, nums2, k):
-        queue = []
-        def push(i, j):
-            if i < len(nums1) and j < len(nums2):
-                heapq.heappush(queue, [nums1[i] + nums2[j], i, j])
-        push(0, 0)
-        pairs = []
-        while queue and len(pairs) < k:
-            _, i, j = heapq.heappop(queue)
-            pairs.append([nums1[i], nums2[j]])
-            push(i, j + 1)
-            if j == 0:
-                push(i + 1, 0)
-        return pairs</code></pre>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>不是因为希望才去坚持，而是因为坚持才有了希望~加油！</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
+                <h1 id="17-Letter-Combinations-of-a-Phone-Number"><a href="#17-Letter-Combinations-of-a-Phone-Number" class="headerlink" title="17. Letter Combinations of a Phone Number"></a>17. Letter Combinations of a Phone Number</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/08/6H4D2QAO9vdgLcW.png" alt=""></p>
+<h3 id="方法一：回溯"><a href="#方法一：回溯" class="headerlink" title="方法一：回溯"></a>方法一：回溯</h3><p>当题目中出现“所有组合”等类似字眼时，我们第一感觉就要想到用回溯。</p>
+<p>定义函数 <code>backtrack(combination, nextdigit)</code>，当<code>nextdigit</code> 非空时，对于 <code>nextdigit[0]</code> 中的每一个字母 <code>letter</code>，执行回溯 <code>backtrack(combination + letter,nextdigit[1:]</code>，直至 <code>nextdigit</code> 为空。最后将 <code>combination</code> 加入到结果中。</p>
+<p><img src="https://i.loli.net/2020/02/08/1OSwgvtzRC2rpdl.gif" alt="fig 1"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">letterCombinations</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> digits<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> digits<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        phone <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'2'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'3'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">,</span><span class="token string">'f'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'4'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'g'</span><span class="token punctuation">,</span><span class="token string">'h'</span><span class="token punctuation">,</span><span class="token string">'i'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'5'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'j'</span><span class="token punctuation">,</span><span class="token string">'k'</span><span class="token punctuation">,</span><span class="token string">'l'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'6'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token string">'n'</span><span class="token punctuation">,</span><span class="token string">'o'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'7'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'p'</span><span class="token punctuation">,</span><span class="token string">'q'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">,</span><span class="token string">'s'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'8'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'t'</span><span class="token punctuation">,</span><span class="token string">'u'</span><span class="token punctuation">,</span><span class="token string">'v'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                 <span class="token string">'9'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'w'</span><span class="token punctuation">,</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token string">'y'</span><span class="token punctuation">,</span><span class="token string">'z'</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+        <span class="token keyword">def</span> <span class="token function">backtrack</span><span class="token punctuation">(</span>conbination<span class="token punctuation">,</span>nextdigit<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> len<span class="token punctuation">(</span>nextdigit<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                res<span class="token punctuation">.</span>append<span class="token punctuation">(</span>conbination<span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">for</span> letter <span class="token keyword">in</span> phone<span class="token punctuation">[</span>nextdigit<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    backtrack<span class="token punctuation">(</span>conbination <span class="token operator">+</span> letter<span class="token punctuation">,</span>nextdigit<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        backtrack<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span>digits<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res</code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>时间复杂度：O(3^M×4^N)。M 是对应三个字母的数字个数，N 是对应四个字母的数字个数。</li>
+<li>空间复杂度：O(3^M×4^N)。一共要生成 3^M×4^N 个结果。</li>
+</ul>
+<p>（我们看到，一般使用回溯求所有结果的复杂度还是相当大的~）</p>
+<h3 id="方法二：队列"><a href="#方法二：队列" class="headerlink" title="方法二：队列"></a>方法二：队列</h3><p>我们也可以使用队列，先将输入的 <code>digits</code> 中第一个数字对应的每一个字母入队，然后将出队的元素与第二个数字对应的每一个字母组合后入队…直到遍历到 <code>digits</code> 的结尾。最后队列中的元素就是所求结果。</p>
+<p><img src="https://i.loli.net/2020/02/08/y49PUef5QupHBSX.gif" alt="fig 2"></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">letterCombinations</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> digits<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> digits<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        phone <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">,</span><span class="token string">'def'</span><span class="token punctuation">,</span><span class="token string">'ghi'</span><span class="token punctuation">,</span><span class="token string">'jkl'</span><span class="token punctuation">,</span><span class="token string">'mno'</span><span class="token punctuation">,</span><span class="token string">'pqrs'</span><span class="token punctuation">,</span><span class="token string">'tuv'</span><span class="token punctuation">,</span><span class="token string">'wxyz'</span><span class="token punctuation">]</span>
+        queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 初始化队列</span>
+        <span class="token keyword">for</span> digit <span class="token keyword">in</span> digits<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                tmp <span class="token operator">=</span> queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token keyword">for</span> letter <span class="token keyword">in</span> phone<span class="token punctuation">[</span>ord<span class="token punctuation">(</span>digit<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token comment" spellcheck="true"># 这里我们不使用 int() 转换字符串，使用ASCII码</span>
+                    queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>tmp <span class="token operator">+</span> letter<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> queue
+</code></pre>
+<h3 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>时间复杂度：O(3^M×4^N)。M 是对应三个字母的数字个数，N 是对应四个字母的数字个数。</li>
+<li>空间复杂度：O(3^M×4^N)。一共要生成 3^M×4^N 个结果。</li>
+</ul>
+<p>欢迎补充其他代码<del>如有问题，欢迎讨论</del></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -564,7 +587,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/01/24/0373/">http://ml-zimingmeng.github.io/2020/01/24/0373/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/08/0017/">http://ml-zimingmeng.github.io/2020/02/08/0017/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -606,8 +629,12 @@
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                                    <span class="chip bg-color">优先队列</span>
+                                <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">回溯算法</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%98%9F%E5%88%97/">
+                                    <span class="chip bg-color">队列</span>
                                 </a>
                             
                         </div>
@@ -778,7 +805,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-01-24T02-20-00',
+        id: '2020-02-08T18-15-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -799,29 +826,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/31/0001/">
+                <a href="/2020/02/08/0017/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="1. Two Sum">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="17. Letter Combinations of a Phone Number">
                         
-                        <span class="card-title">1. Two Sum</span>
+                        <span class="card-title">17. Letter Combinations of a Phone Number</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一网打尽从两数之和到四数之和
+                            有回溯的地方，就有迭代...
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -834,15 +862,20 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        <span class="chip bg-color">哈希表</span>
-                    </a>
-                    
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">回溯算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">队列</span>
                     </a>
                     
                 </div>
@@ -856,31 +889,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/">
+                <a href="/2020/02/08/cpp-p04l02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="从零学 C++：指针总结">
                         
-                        <span class="card-title">队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板</span>
+                        <span class="card-title">从零学 C++：指针总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文介绍了BFS和DFS原理，并提供相关Java模板
+                            Udacity C++ 学习笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -890,20 +923,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">指针</span>
                     </a>
                     
                 </div>

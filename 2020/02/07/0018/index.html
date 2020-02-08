@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="373. Find K Pairs with Smallest Sums, Z1m">
-    <meta name="description" content="从慢速到快速的五种解法">
+    <meta name="keywords" content="18. 4Sum, Z1m">
+    <meta name="description" content="一举攻破两数之和到四数之和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>373. Find K Pairs with Smallest Sums | Z1m</title>
+    <title>18. 4Sum | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">373. Find K Pairs with Smallest Sums</h1>
+                    <h1 class="description center-align post-title">18. 4Sum</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                                <span class="chip bg-color">优先队列</span>
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">双指针</span>
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-24
+                    2020-02-07
                 </div>
                 
 
@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    533
+                    736
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -487,40 +487,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="解法一：暴力"><a href="#解法一：暴力" class="headerlink" title="解法一：暴力"></a>解法一：暴力</h3><p>枚举所有组合，按照和排序，最后返回前 K 项。</p>
-<p><img src="https://i.loli.net/2020/02/03/jWNcHnoGpazt7wT.png" alt="fig 1"></p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    return sorted(itertools.product(nums1, nums2), key=sum)[:k]</code></pre>
-<h3 id="解法二：暴力标准解"><a href="#解法二：暴力标准解" class="headerlink" title="解法二：暴力标准解"></a>解法二：暴力标准解</h3><p>这个解法更加标准，因为上面的解法生成的是元组不是列表。</p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    return map(list, sorted(itertools.product(nums1, nums2), key=sum)[:k])</code></pre>
-<h3 id="解法三：优化的暴力"><a href="#解法三：优化的暴力" class="headerlink" title="解法三：优化的暴力"></a>解法三：优化的暴力</h3><p>仍然遍历所有对，但仅使用生成器和使用大小为 k 的堆<code>heapq.nsmallest</code>。 因此，这仅需要 O(k) 的额外内存和 O(mn log k) 的时间。</p>
-<pre><code>def kSmallestPairs(self, nums1, nums2, k):
-    return map(list, heapq.nsmallest(k, itertools.product(nums1, nums2), key=sum))</code></pre><h3 id="解法四：堆"><a href="#解法四：堆" class="headerlink" title="解法四：堆"></a>解法四：堆</h3><p>不计算整个矩阵，而将每一行变成三元组<code>[u + v，u，v]</code>的生成器，仅在要求计算下一行时才计算下一行，然后将这些生成器与堆合并。 占用 O(m + k * log(m)) 的时间复杂度和 O(m) 的空间复杂度。</p>
-<pre class=" language-python3"><code class="language-python3">def kSmallestPairs(self, nums1, nums2, k):
-    streams = map(lambda u: ([u+v, u, v] for v in nums2), nums1)
-    stream = heapq.merge(*streams)
-    return [suv[1:] for suv in itertools.islice(stream, k)]</code></pre>
-<h3 id="解法五：优先队列"><a href="#解法五：优先队列" class="headerlink" title="解法五：优先队列"></a>解法五：优先队列</h3><p>它仅从矩阵左上角的第一对开始，然后根据需要从那里开始扩展。 每当将一对选择为输出结果时，该行中的下一对就会添加到当前选项的优先队列中。 同样，如果所选对是该行中的第一对，则将下一行中的第一对添加到队列中。</p>
-<p><img src="https://i.loli.net/2020/02/03/u6yVbrnkLpZj1Io.png" alt="fig 2"></p>
-<pre class=" language-python3"><code class="language-python3">class Solution:
-    def kSmallestPairs(self, nums1, nums2, k):
-        queue = []
-        def push(i, j):
-            if i < len(nums1) and j < len(nums2):
-                heapq.heappush(queue, [nums1[i] + nums2[j], i, j])
-        push(0, 0)
-        pairs = []
-        while queue and len(pairs) < k:
-            _, i, j = heapq.heappop(queue)
-            pairs.append([nums1[i], nums2[j]])
-            push(i, j + 1)
-            if j == 0:
-                push(i + 1, 0)
-        return pairs</code></pre>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>不是因为希望才去坚持，而是因为坚持才有了希望~加油！</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
+                <h1 id="18-4Sum"><a href="#18-4Sum" class="headerlink" title="18. 4Sum"></a>18. 4Sum</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/08/Af6pLxDGOdIwRjg.png" alt=""></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本题是三数之和的进阶题目，强烈建议您先看三数之和的 <a href="https://leetcode-cn.com/problems/3sum/solution/pai-xu-shuang-zhi-zhen-tu-jie-by-ml-zimingmeng/" target="_blank" rel="noopener">解题思路</a>，看过之后再来看本题目，思路也就非常清晰了。</p>
+<p>具体来说，对比三数之和最快的双指针方法，我们只需在外层在嵌套一层循环即可。这样时间复杂度将从 $O(N^2)$ 变为 $O(N^3)$。</p>
+<h3 id="有没有更快的解法"><a href="#有没有更快的解法" class="headerlink" title="有没有更快的解法"></a>有没有更快的解法</h3><p><a href="https://en.wikipedia.org/wiki/3SUM" target="_blank" rel="noopener">维基百科</a> 中提到了三数之和小于 $O(N^2)$ 的时间复杂度的解法，因此四数之和的时间复杂度理论上可以小于 $O(N^3)$，但是我认为有些“超纲了”，没必要掌握。</p>
+<p>我们仍然可以在 $O(N^3)$ 的时间复杂度内通过增加条件判断使得速度得到很大提升。主要考虑以下几点：</p>
+<ul>
+<li>指针依次是 <code>p,k,i,j</code>，如果 <code>nums[p] + 3 * nums[p + 1] &gt; target</code>，因为 <code>nums</code> 按升序排列，所以之后的数肯定都大于 <code>target</code> ，直接 <code>break</code>；</li>
+<li>如果 <code>nums[p] + 3 * nums[-1] &lt; target</code>，那么当前的 <code>nums[p]</code> 加其余三个数一定小于 <code>target</code>，故 <code>p</code> 直接下一位即可，<code>continue</code>；</li>
+<li><code>k</code> 和 <code>p</code> 判断完全一样，只是将 <code>3</code> 变成了 <code>2</code>，<code>target</code> 变成了 <code>target - nums[p]</code>。</li>
+</ul>
+<p>同样地，为了避免结果重复，某个指针遇到相同的数需要直接跳过，这与三数之和是一样的。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">fourSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+        res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        p <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment" spellcheck="true"># p, k, i, j</span>
+        <span class="token keyword">while</span> p <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">3</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 文中提到的两个条件，可以直接跳过</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> target<span class="token punctuation">:</span> <span class="token keyword">break</span>  
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">:</span>           
+                <span class="token keyword">while</span> p <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">and</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> p <span class="token operator">+=</span> <span class="token number">1</span>
+                p <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">continue</span>
+            k <span class="token operator">=</span> p <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">while</span> k <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true"># k 和 p 的判断是一样的</span>
+                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span>k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> target<span class="token punctuation">:</span> <span class="token keyword">break</span>
+                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">:</span> 
+                    <span class="token keyword">while</span> k <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">3</span> <span class="token operator">and</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                        k <span class="token operator">+=</span> <span class="token number">1</span>
+                    k <span class="token operator">+=</span> <span class="token number">1</span>
+                    <span class="token keyword">continue</span>
+                i <span class="token operator">=</span> k <span class="token operator">+</span> <span class="token number">1</span>
+                j <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span>
+                new_target <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">-</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span>
+                <span class="token keyword">while</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> new_target<span class="token punctuation">:</span> j <span class="token operator">-=</span> <span class="token number">1</span>
+                    <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> new_target<span class="token punctuation">:</span> i <span class="token operator">+=</span> <span class="token number">1</span>
+                    <span class="token keyword">else</span><span class="token punctuation">:</span>
+                        res<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                        i <span class="token operator">+=</span> <span class="token number">1</span>
+                        j <span class="token operator">-=</span> <span class="token number">1</span>
+                        <span class="token keyword">while</span> i <span class="token operator">&lt;</span> j <span class="token operator">and</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> i <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true"># 避免结果重复</span>
+                        <span class="token keyword">while</span> i <span class="token operator">&lt;</span> j <span class="token operator">and</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> j <span class="token operator">-=</span> <span class="token number">1</span> <span class="token comment" spellcheck="true"># 避免结果重复</span>
+                <span class="token keyword">while</span> k <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">3</span> <span class="token operator">and</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> k <span class="token operator">+=</span> <span class="token number">1</span>
+                k <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">while</span> p <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">and</span> nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> p <span class="token operator">+=</span> <span class="token number">1</span>
+            p <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> res</code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>时间复杂度：O(N^3)。</li>
+<li>空间复杂度：O(1)。</li>
+</ul>
+<p>如有问题，欢迎讨论~</p>
+<h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">1.两数之和</a></li>
+<li><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">15.三数之和</a></li>
+<li><a href="https://leetcode-cn.com/problems/4sum-ii/" target="_blank" rel="noopener">454. 四数相加 II</a></li>
+</ul>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -564,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/01/24/0373/">http://ml-zimingmeng.github.io/2020/01/24/0373/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/07/0018/">http://ml-zimingmeng.github.io/2020/02/07/0018/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -606,8 +632,8 @@
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                                    <span class="chip bg-color">优先队列</span>
+                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">双指针</span>
                                 </a>
                             
                         </div>
@@ -778,7 +804,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-01-24T02-20-00',
+        id: '2020-02-07T16-08-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -803,25 +829,78 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/31/0001/">
+                <a href="/2020/02/07/0015/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="1. Two Sum">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="15. 3Sum">
                         
-                        <span class="card-title">1. Two Sum</span>
+                        <span class="card-title">15. 3Sum</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一网打尽从两数之和到四数之和
+                            一举攻破两数之和到四数之和
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/07/0012/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="12. Integer to Roman">
+                        
+                        <span class="card-title">12. Integer to Roman</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            罗马数字记得使用哈希表
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -845,65 +924,8 @@
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/09/dui-lie-he-guang-du-you-xian-sou-suo-bfs-zhan-he-shen-du-you-xian-sou-suo-dfs-ji-java-mo-ban/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板">
-                        
-                        <span class="card-title">队列和广度优先搜索（BFS）、栈和深度优先搜索（DFS）及Java模板</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文介绍了BFS和DFS原理，并提供相关Java模板
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">贪心算法</span>
                     </a>
                     
                 </div>
