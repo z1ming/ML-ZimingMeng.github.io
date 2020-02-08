@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2020-02-08T10:20:16.068Z</updated>
+  <updated>2020-02-08T12:33:21.254Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20. Valid Parentheses</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/08/0020/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/08/0020/</id>
+    <published>2020-02-08T12:32:00.000Z</published>
+    <updated>2020-02-08T12:33:21.254Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;20-Valid-Parentheses&quot;&gt;&lt;a href=&quot;#20-Valid-Parentheses&quot; class=&quot;headerlink&quot; title=&quot;20. Valid Parentheses&quot;&gt;&lt;/a&gt;20. Valid
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="哈希表" scheme="http://ml-zimingmeng.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="栈" scheme="http://ml-zimingmeng.github.io/tags/%E6%A0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>17. Letter Combinations of a Phone Number</title>
@@ -291,37 +322,6 @@
   </entry>
   
   <entry>
-    <title>240. Search a 2D Matrix II</title>
-    <link href="http://ml-zimingmeng.github.io/2020/02/04/0240/"/>
-    <id>http://ml-zimingmeng.github.io/2020/02/04/0240/</id>
-    <published>2020-02-04T10:40:00.000Z</published>
-    <updated>2020-02-06T14:45:25.600Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;240-Search-a-2D-Matrix-II&quot;&gt;&lt;a href=&quot;#240-Search-a-2D-Matrix-II&quot; class=&quot;headerlink&quot; title=&quot;240. Search a 2D Matrix II&quot;&gt;&lt;/a&gt;240.
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
-    
-      <category term="动态规划" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
     <title>55. Jump Game</title>
     <link href="http://ml-zimingmeng.github.io/2020/02/04/0055/"/>
     <id>http://ml-zimingmeng.github.io/2020/02/04/0055/</id>
@@ -349,6 +349,37 @@
       <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
     
       <category term="贪心算法" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>240. Search a 2D Matrix II</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/04/0240/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/04/0240/</id>
+    <published>2020-02-04T10:40:00.000Z</published>
+    <updated>2020-02-06T14:45:25.600Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;240-Search-a-2D-Matrix-II&quot;&gt;&lt;a href=&quot;#240-Search-a-2D-Matrix-II&quot; class=&quot;headerlink&quot; title=&quot;240. Search a 2D Matrix II&quot;&gt;&lt;/a&gt;240.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
+    
+      <category term="动态规划" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -529,9 +560,9 @@
     
       <category term="BFS" scheme="http://ml-zimingmeng.github.io/tags/BFS/"/>
     
-      <category term="Python" scheme="http://ml-zimingmeng.github.io/tags/Python/"/>
-    
       <category term="算法" scheme="http://ml-zimingmeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Python" scheme="http://ml-zimingmeng.github.io/tags/Python/"/>
     
       <category term="DFS" scheme="http://ml-zimingmeng.github.io/tags/DFS/"/>
     

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="11. Container With Most Water, Z1m">
-    <meta name="description" content="这道题目和接雨水的题目很相似，思路很经典">
+    <meta name="keywords" content="20. Valid Parentheses, Z1m">
+    <meta name="description" content="从本题了解堆栈的正确使用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>11. Container With Most Water | Z1m</title>
+    <title>20. Valid Parentheses | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">11. Container With Most Water</h1>
+                    <h1 class="description center-align post-title">20. Valid Parentheses</h1>
                 </div>
             </div>
         </div>
@@ -426,12 +426,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                <span class="chip bg-color">哈希表</span>
+                            </a>
+                        
                             <a href="/tags/LeetCode/">
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
+                            <a href="/tags/%E6%A0%88/">
+                                <span class="chip bg-color">栈</span>
                             </a>
                         
                     </div>
@@ -455,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-05
+                    2020-02-08
                 </div>
                 
 
@@ -464,7 +468,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    344
+                    499
                 </div>
                 
 
@@ -487,26 +491,32 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="11-Container-With-Most-Water"><a href="#11-Container-With-Most-Water" class="headerlink" title="11. Container With Most Water"></a>11. Container With Most Water</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/05/f75Z8zFqr96ipAw.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><a href="https://leetcode-cn.com/problems/container-with-most-water/solution/sheng-zui-duo-shui-de-rong-qi-by-leetcode/" target="_blank" rel="noopener">可以参考官方题解的动图</a>，思路很简单，设置两个指针 <code>start</code> 和 <code>end</code> 分别位于容器两端，当 <code>start &lt; end</code> 时，每次将高度较矮的指针向内移动，同时更新最大面积。（这个的证明可以用反证法，官方题解可以找到）通俗来讲，因为每次向内移动时，距离就减小，只有移动高度较矮的那个，才有机会碰到高度更高的使得面积增大。</p>
+                <h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/08/25WtL8CEpMkcvKV.png" alt=""></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>当开始接触题目时，我们会不禁想到如果计算出左括号的数量，和右括号的数量，如果每种括号左右数量相同，会不会就是有效的括号了呢？</p>
+<p>事实上不是的，假如输入是 <code>[{]}</code>，每种括号的左右数量分别相等，但不是有效的括号。这是因为结果还与括号的位置有关。</p>
+<p>仔细分析我们发现，对于有效的括号，它的部分子表达式仍然是有效的括号，比如 <code>{()[()]}</code> 是一个有效的括号，<code>()[{}]</code> 是有效的括号，<code>[()]</code> 也是有效的括号。并且当我们每次删除一个最小的括号对时，我们会逐渐将括号删除完。比如下面的例子。</p>
+<p><img src="https://pic.leetcode-cn.com/030f65021c3566468d87504c8ebb9d55c4aa023b66406d80a5aee787b6b203de-p1.png" alt="p1.png"></p>
+<p>这个思考的过程其实就是栈的实现过程。因此我们考虑使用栈，当遇到匹配的最小括号对时，我们将这对括号从栈中删除（即出栈），如果最后栈为空，那么它是有效的括号，反之不是。</p>
+<p><img src="https://pic.leetcode-cn.com/baa8829ac398e665eb645dca29eadd631e2b337e05022aa5a678e091471a4913-20.gif" alt="20.gif"></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        ans <span class="token operator">=</span> float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        start<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        <span class="token keyword">while</span> start <span class="token operator">&lt;</span> end<span class="token punctuation">:</span>
-            ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>min<span class="token punctuation">(</span>height<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> height<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                start <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                end <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> ans</code></pre>
+    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">')'</span><span class="token punctuation">:</span><span class="token string">'('</span><span class="token punctuation">,</span><span class="token string">']'</span><span class="token punctuation">:</span><span class="token string">'['</span><span class="token punctuation">,</span><span class="token string">'}'</span><span class="token punctuation">:</span><span class="token string">'{'</span><span class="token punctuation">}</span>
+        stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> stack <span class="token operator">and</span> i <span class="token keyword">in</span> dic<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> dic<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token operator">not</span> stack</code></pre>
+<p>代码中我们使用了哈希表来判断是否能够形成括号，从而决定进行入栈操作还是出栈操作。</p>
 <h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)</li>
-<li>空间复杂度：O(1)</li>
+<li>时间复杂度：O(N)。遍历了一遍字符串。</li>
+<li>空间复杂度：O(N)。最坏情况下，假如输入是 <code>(((((((</code>，栈的大小将是输入字符串的长度。</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>有很多题如果只想到了 O(N^2) 的解法往往是不够的，比如这道题利用双指针可以优化到 O(N)。这道题二刷的时候做得确实比开始时候要轻松一些~加油！</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
+<p>如有其他代码欢迎提供<del>如有问题欢迎讨论</del></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -550,7 +560,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/05/0011/">http://ml-zimingmeng.github.io/2020/02/05/0011/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/08/0020/">http://ml-zimingmeng.github.io/2020/02/08/0020/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,12 +598,16 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                                    <span class="chip bg-color">哈希表</span>
+                                </a>
+                            
                                 <a href="/tags/LeetCode/">
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
+                                <a href="/tags/%E6%A0%88/">
+                                    <span class="chip bg-color">栈</span>
                                 </a>
                             
                         </div>
@@ -764,7 +778,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-05T11-10-00',
+        id: '2020-02-08T20-32-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -785,29 +799,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/06/0042/">
+                <a href="/2020/02/08/0020/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="42. Trapping Rain Water">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="20. Valid Parentheses">
                         
-                        <span class="card-title">42. Trapping Rain Water</span>
+                        <span class="card-title">20. Valid Parentheses</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            暴力 -> 动态规划 -> 双指针
+                            从本题了解堆栈的正确使用
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -820,19 +835,20 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
+                    </a>
                     
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
@@ -846,24 +862,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/05/0010/">
+                <a href="/2020/02/08/0017/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="10. Regular Expression Matching">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="17. Letter Combinations of a Phone Number">
                         
-                        <span class="card-title">10. Regular Expression Matching</span>
+                        <span class="card-title">17. Letter Combinations of a Phone Number</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            教你如何全面考虑所有情况
+                            有回溯的地方，就有迭代...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
                             </span>
                         <span class="publish-author">
                             
@@ -884,16 +900,12 @@
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/Python3/">
-                        <span class="chip bg-color">Python3</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
                     <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">回溯算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">队列</span>
                     </a>
                     
                 </div>
