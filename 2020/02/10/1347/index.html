@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="11. Container With Most Water, Z1m">
-    <meta name="description" content="这道题目和接雨水的题目很相似，思路很经典">
+    <meta name="keywords" content="1347. Minimum Number of Steps to Make Two Strings Anagram, Z1m">
+    <meta name="description" content="字母异位词指字母相同，但排列不同的字符串。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>11. Container With Most Water | Z1m</title>
+    <title>1347. Minimum Number of Steps to Make Two Strings Anagram | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">11. Container With Most Water</h1>
+                    <h1 class="description center-align post-title">1347. Minimum Number of Steps to Make Two Strings Anagram</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
+                            <a href="/tags/%E6%95%B0%E7%BB%84/">
+                                <span class="chip bg-color">数组</span>
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-05
+                    2020-02-10
                 </div>
                 
 
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    344
+                    352
                 </div>
                 
 
@@ -487,26 +487,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="11-Container-With-Most-Water"><a href="#11-Container-With-Most-Water" class="headerlink" title="11. Container With Most Water"></a>11. Container With Most Water</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/05/f75Z8zFqr96ipAw.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><a href="https://leetcode-cn.com/problems/container-with-most-water/solution/sheng-zui-duo-shui-de-rong-qi-by-leetcode/" target="_blank" rel="noopener">可以参考官方题解的动图</a>，思路很简单，设置两个指针 <code>start</code> 和 <code>end</code> 分别位于容器两端，当 <code>start &lt; end</code> 时，每次将高度较矮的指针向内移动，同时更新最大面积。（这个的证明可以用反证法，官方题解可以找到）通俗来讲，因为每次向内移动时，距离就减小，只有移动高度较矮的那个，才有机会碰到高度更高的使得面积增大。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        ans <span class="token operator">=</span> float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        start<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        <span class="token keyword">while</span> start <span class="token operator">&lt;</span> end<span class="token punctuation">:</span>
-            ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>min<span class="token punctuation">(</span>height<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> height<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                start <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                end <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> ans</code></pre>
+                <h1 id="1347-Minimum-Number-of-Steps-to-Make-Two-Strings-Anagram"><a href="#1347-Minimum-Number-of-Steps-to-Make-Two-Strings-Anagram" class="headerlink" title="1347. Minimum Number of Steps to Make Two Strings Anagram"></a>1347. Minimum Number of Steps to Make Two Strings Anagram</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/10/fjP6h4bpeqv53Fo.png" alt=""></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我们发现字母异位词 <code>s</code> 和 <code>t</code> 中，每个字母出现的次数相同，位置可能相同也可能不同，比如 <code>anagram</code> 和 <code>mangaar</code>，或者 <code>xxyyzz</code> 和 <code>xxyyzz</code>。因此我们在求解的时候，无需考虑位置，只需考虑两个字符串中字母出现的位置。</p>
+<p>因此，使用数组记录每个字母出现的次数:</p>
+<p>$字母i出现的次数=s中字母i出现的次数-t中字母i出现的次数$</p>
+<p>出现次数有正有负，只需将正值加起来即可。</p>
+<p><img src="https://i.loli.net/2020/02/10/hg5S8ckodMRGLQx.gif" alt="fig 1"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>python</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">minSteps</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">,</span> t<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        cnt <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">26</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cnt<span class="token punctuation">[</span>ord<span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            cnt<span class="token punctuation">[</span>ord<span class="token punctuation">(</span>t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> ord<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> cnt<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+                res <span class="token operator">+=</span> i
+        <span class="token keyword">return</span> res</code></pre>
+<p>C++</p>
+<pre class=" language-C++"><code class="language-C++">class Solution {
+public:
+    int minSteps(string s, string t) {
+        int res = 0;
+        vector<int> tmp(26,0);
+
+        for(int i = 0; i< s.size();i++){
+            tmp[s[i] - 'a']++;
+            tmp[t[i] - 'a']--;
+
+        }
+        for (int i = 0;i < 26;++i){
+            if(tmp[i] > 0) res += abs(tmp[i]);
+        }
+        return res;
+    }
+};</code></pre>
 <h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)</li>
-<li>空间复杂度：O(1)</li>
+<li>时间复杂度：O(N)。</li>
+<li>空间复杂度：O(N)。</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>有很多题如果只想到了 O(N^2) 的解法往往是不够的，比如这道题利用双指针可以优化到 O(N)。这道题二刷的时候做得确实比开始时候要轻松一些~加油！</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -550,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/05/0011/">http://ml-zimingmeng.github.io/2020/02/05/0011/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/10/1347/">http://ml-zimingmeng.github.io/2020/02/10/1347/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,8 +614,8 @@
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
+                                <a href="/tags/%E6%95%B0%E7%BB%84/">
+                                    <span class="chip bg-color">数组</span>
                                 </a>
                             
                         </div>
@@ -764,7 +786,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-05T11-10-00',
+        id: '2020-02-10T16-19-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -785,29 +807,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/06/0042/">
+                <a href="/2020/02/10/1347/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="42. Trapping Rain Water">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1347. Minimum Number of Steps to Make Two Strings Anagram">
                         
-                        <span class="card-title">42. Trapping Rain Water</span>
+                        <span class="card-title">1347. Minimum Number of Steps to Make Two Strings Anagram</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            暴力 -> 动态规划 -> 双指针
+                            字母异位词指字母相同，但排列不同的字符串。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -820,6 +843,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -827,12 +851,8 @@
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
@@ -846,24 +866,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/05/0010/">
+                <a href="/2020/02/10/5335/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="10. Regular Expression Matching">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="1349. Maximum Students Taking Exam">
                         
-                        <span class="card-title">10. Regular Expression Matching</span>
+                        <span class="card-title">1349. Maximum Students Taking Exam</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            教你如何全面考虑所有情况
+                            当我第一次接触压缩状态 DP 时，并不知道它能干什么...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                             </span>
                         <span class="publish-author">
                             
@@ -880,20 +900,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">回溯算法</span>
-                    </a>
-                    
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/Python3/">
-                        <span class="chip bg-color">Python3</span>
-                    </a>
-                    
                     <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                         <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8E%8B%E7%BC%A9%E7%8A%B6%E6%80%81/">
+                        <span class="chip bg-color">压缩状态</span>
                     </a>
                     
                 </div>

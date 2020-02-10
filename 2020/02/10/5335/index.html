@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="11. Container With Most Water, Z1m">
-    <meta name="description" content="这道题目和接雨水的题目很相似，思路很经典">
+    <meta name="keywords" content="1349. Maximum Students Taking Exam, Z1m">
+    <meta name="description" content="当我第一次接触压缩状态 DP 时，并不知道它能干什么...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>11. Container With Most Water | Z1m</title>
+    <title>1349. Maximum Students Taking Exam | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">11. Container With Most Water</h1>
+                    <h1 class="description center-align post-title">1349. Maximum Students Taking Exam</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,12 @@
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">双指针</span>
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">动态规划</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8E%8B%E7%BC%A9%E7%8A%B6%E6%80%81/">
+                                <span class="chip bg-color">压缩状态</span>
                             </a>
                         
                     </div>
@@ -455,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-05
+                    2020-02-10
                 </div>
                 
 
@@ -464,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    344
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -487,26 +491,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="11-Container-With-Most-Water"><a href="#11-Container-With-Most-Water" class="headerlink" title="11. Container With Most Water"></a>11. Container With Most Water</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/05/f75Z8zFqr96ipAw.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><a href="https://leetcode-cn.com/problems/container-with-most-water/solution/sheng-zui-duo-shui-de-rong-qi-by-leetcode/" target="_blank" rel="noopener">可以参考官方题解的动图</a>，思路很简单，设置两个指针 <code>start</code> 和 <code>end</code> 分别位于容器两端，当 <code>start &lt; end</code> 时，每次将高度较矮的指针向内移动，同时更新最大面积。（这个的证明可以用反证法，官方题解可以找到）通俗来讲，因为每次向内移动时，距离就减小，只有移动高度较矮的那个，才有机会碰到高度更高的使得面积增大。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-        ans <span class="token operator">=</span> float<span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
-        start<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-        <span class="token keyword">while</span> start <span class="token operator">&lt;</span> end<span class="token punctuation">:</span>
-            ans <span class="token operator">=</span> max<span class="token punctuation">(</span>ans<span class="token punctuation">,</span>min<span class="token punctuation">(</span>height<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">if</span> height<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> height<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                start <span class="token operator">+=</span> <span class="token number">1</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                end <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> ans</code></pre>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)</li>
-<li>空间复杂度：O(1)</li>
+                <h1 id="1349-Maximum-Students-Taking-Exam"><a href="#1349-Maximum-Students-Taking-Exam" class="headerlink" title="1349. Maximum Students Taking Exam"></a>1349. Maximum Students Taking Exam</h1><h3 id="题目描述（难度：困难）"><a href="#题目描述（难度：困难）" class="headerlink" title="题目描述（难度：困难）"></a>题目描述（难度：困难）</h3><p><img src="https://i.loli.net/2020/02/10/Xlvjpb7kne9JM1O.png" alt=""></p>
+<h3 id="1-什么是动态规划（dynamic-programming，DP）"><a href="#1-什么是动态规划（dynamic-programming，DP）" class="headerlink" title="1. 什么是动态规划（dynamic programming，DP）"></a>1. 什么是动态规划（dynamic programming，DP）</h3><p>很多情况下我们都把动态规划想得太复杂了，我也是其中一个。quora 上有一个回答是这么说的：</p>
+<ul>
+<li>首先在一张纸上写下 $1+1+1+1+1+1+1+1=？$</li>
+<li>“它等于多少呢？”</li>
+<li>我们会立即脱口而出，“等于8！”</li>
+<li>如果我们在左边添一个 $1 +$</li>
+<li>“会等于多少呢？”</li>
+<li>当然，不用想，“等于9！”</li>
+<li>“为什么你会计算得这么快呢？”</li>
+<li>“因为 $8+1=9$”</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>有很多题如果只想到了 O(N^2) 的解法往往是不够的，比如这道题利用双指针可以优化到 O(N)。这道题二刷的时候做得确实比开始时候要轻松一些~加油！</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
+<p>所以，我们没有重新计算 $1+1+1+1+1+1+1+1+1$ 的值因为我们记住了前面的和等于8，所以再次计算时只需再加 1 就可以了。</p>
+<p><strong>我们通过记住一些事情来节省时间，这就是动态规划的精髓。</strong> 具体来说，如果一个问题的子问题会被我们重复利用，我们则可以考虑使用动态规划。</p>
+<h3 id="2-什么是状态压缩-DP"><a href="#2-什么是状态压缩-DP" class="headerlink" title="2. 什么是状态压缩 DP"></a>2. 什么是状态压缩 DP</h3><p>一般来说，动态规划使用一个一维数组或者二维数组来保存状态。</p>
+<p>比如 <a href="https://leetcode-cn.com/problems/trapping-rain-water/" target="_blank" rel="noopener">42.接雨水</a> 中，我们使用<strong>一维数组</strong> <code>dp[i]</code> 表示下标 <code>i</code>左边最高柱子的高度。<code>dp[i]</code> 包含了两个信息：</p>
+<ul>
+<li>下标 <code>i</code> 左边的柱子</li>
+<li>最高的高度值</li>
+</ul>
+<p>比如 <a href="https://leetcode-cn.com/problems/regular-expression-matching/" target="_blank" rel="noopener">10.正则表达式匹配</a> 中，我们使用<strong>二维数组</strong> <code>dp[i][j]</code> 表示 字符串 <code>s</code> 的前 <code>i</code> 项和 <code>t</code> 的前 <code>j</code> 项是否匹配。<code>dp[i][j]</code> 包含了三个信息：</p>
+<ul>
+<li><code>s</code> 的前 <code>i</code> 项</li>
+<li><code>t</code> 的前 <code>j</code> 项</li>
+<li>是否匹配</li>
+</ul>
+<p>对于本题来讲，通过分析，我们也可以表示类似的状态，<code>dp[i][j]</code> 表示当第 <code>i</code> 行的座位分布为 <code>j</code> 时，前 <code>i</code> 行可容纳的最大学生人数。但如果我们还想知道第 <code>i</code> 行有多少个座位呢？这无疑多了一个维度，这时我们不能用类似 <code>dp[i][j][k]</code> 来表示了，因为计算机中没有类似三维的数据结构。</p>
+<p>这时候状态中所包含的信息过多，该怎么办呢？我们可以<strong>利用二进制以及位运算来实现对于本来应该很大的数组的操作，这就是状态压缩</strong>，而使用状态压缩来保存状态的 DP 就叫做状态压缩 DP。</p>
+<h3 id="3-解题思路"><a href="#3-解题思路" class="headerlink" title="3. 解题思路"></a>3. 解题思路</h3><p><em>1. 用位编码表示状态</em></p>
+<p>题目中提到 m，n 不超过 8，图我们可以使用位编码记录每一行的状态，即当椅子上坐了一个人时，我们将该位置设为 1，如下图所示：</p>
+<p><img src="https://pic.leetcode-cn.com/8de2c203dbd8f489999ad92a0dfca24914770c692d9b4a4779e0b1a4433d0020-file_1581261113779" alt="p1.png"></p>
+<p><em>2. 判断此状态是否有效</em><br>对于如下图的座位中，我们看到坐了两个人，如何判断这个状态是不是有效的呢？首先将原状态左移，右移，如果它们的与运算结果为 0，则表明学生左侧和右侧没有人坐。此外，类似地，我们还要保证学生坐在良好的座位上。</p>
+<p><img src="https://pic.leetcode-cn.com/ffc20d9f387c7921139dab9907a03c0a07012c89e0ee01d1291ad626c81f2fc3-p2.png" alt="p2.png"></p>
+<p><em>3. 判断此状态 i 与下一个状态 i+1 的关系</em><br>与步骤 2 类似，将下一行的状态 i+1 分别左移，右移，再与状态 i 作与运算，来判断状态 i 的左上和右上是否有人，从而判断是否可以传递状态。</p>
+<p>如果与运算结果为 0，表示左上或者右上没有人，满足传递状态，这时状态转移方程为 <code>dp[i+1][j] = max(dp[i+1][j], dp[i][k] + count(j))</code>，<code>count(j)</code> 表示 <code>i+1</code> 状态中 1 的数量。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> reduce
+<span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxStudents</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> seats<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        m<span class="token punctuation">,</span> n <span class="token operator">=</span> len<span class="token punctuation">(</span>seats<span class="token punctuation">)</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>seats<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        dp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 状态数组 dp</span>
+        <span class="token comment" spellcheck="true"># print(dp)</span>
+        a <span class="token operator">=</span> <span class="token punctuation">[</span>reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span>y<span class="token punctuation">:</span>x<span class="token operator">|</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>y<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token punctuation">[</span>j <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">if</span> seats<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'#'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">]</span> # 将 # 设为 <span class="token number">1</span>，当遇到 <span class="token punctuation">.</span> 时与运算结果为 <span class="token number">0</span>，表示可以坐人
+        <span class="token comment" spellcheck="true"># print(a)</span>
+        <span class="token keyword">for</span> row <span class="token keyword">in</span> range<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 倒着遍历</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token operator">not</span> j <span class="token operator">&amp;</span> j<span class="token operator">&lt;&lt;</span><span class="token number">1</span> <span class="token operator">and</span> <span class="token operator">not</span> j<span class="token operator">&amp;</span>j<span class="token operator">>></span><span class="token number">1</span> <span class="token operator">and</span> <span class="token operator">not</span> j <span class="token operator">&amp;</span> a<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># j &amp; a[row]代表该位置可以坐人，j &amp; j&lt;&lt;1 and not j&amp;j>>1 表示该位置左右没人可以坐的</span>
+                    <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">if</span> <span class="token operator">not</span> j<span class="token operator">&amp;</span>k<span class="token operator">&lt;&lt;</span><span class="token number">1</span> <span class="token operator">and</span> <span class="token operator">not</span> j<span class="token operator">&amp;</span>k<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># j状态的左上和右上没有人</span>
+                            dp<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span>row<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>row<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> bin<span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>dp<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> max<span class="token punctuation">(</span>dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li>时间复杂度：O(N^2)。</li>
+<li>空间复杂度：O(N^2)。</li>
+</ul>
+<p>如有问题，欢迎讨论~</p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -550,7 +594,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/05/0011/">http://ml-zimingmeng.github.io/2020/02/05/0011/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/10/5335/">http://ml-zimingmeng.github.io/2020/02/10/5335/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,8 +636,12 @@
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">双指针</span>
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">动态规划</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8E%8B%E7%BC%A9%E7%8A%B6%E6%80%81/">
+                                    <span class="chip bg-color">压缩状态</span>
                                 </a>
                             
                         </div>
@@ -764,7 +812,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-05T11-10-00',
+        id: '2020-02-10T13-19-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -789,24 +837,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/06/0042/">
+                <a href="/2020/02/10/1347/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="42. Trapping Rain Water">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1347. Minimum Number of Steps to Make Two Strings Anagram">
                         
-                        <span class="card-title">42. Trapping Rain Water</span>
+                        <span class="card-title">1347. Minimum Number of Steps to Make Two Strings Anagram</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            暴力 -> 动态规划 -> 双指针
+                            字母异位词指字母相同，但排列不同的字符串。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                         </span>
                         <span class="publish-author">
                             
@@ -827,12 +875,8 @@
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
@@ -846,24 +890,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/05/0010/">
+                <a href="/2020/02/08/0020/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="10. Regular Expression Matching">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="20. Valid Parentheses">
                         
-                        <span class="card-title">10. Regular Expression Matching</span>
+                        <span class="card-title">20. Valid Parentheses</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            教你如何全面考虑所有情况
+                            从本题了解堆栈的正确使用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
                             </span>
                         <span class="publish-author">
                             
@@ -880,20 +924,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">回溯算法</span>
-                    </a>
-                    
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/Python3/">
-                        <span class="chip bg-color">Python3</span>
+                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E6%A0%88/">
+                        <span class="chip bg-color">栈</span>
                     </a>
                     
                 </div>
