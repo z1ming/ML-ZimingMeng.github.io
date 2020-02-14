@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="55. Jump Game, Z1m">
-    <meta name="description" content="一举攻破跳跃游戏的全部题目">
+    <meta name="keywords" content="08.06. Hanota LCCI, Z1m">
+    <meta name="description" content="64 个盘子移完的时候，世界会毁灭吗？">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>55. Jump Game | Z1m</title>
+    <title>08.06. Hanota LCCI | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">55. Jump Game</h1>
+                    <h1 class="description center-align post-title">08.06. Hanota LCCI</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +430,12 @@
                                 <span class="chip bg-color">LeetCode</span>
                             </a>
                         
-                            <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">贪心算法</span>
+                            <a href="/tags/%E9%80%92%E5%BD%92/">
+                                <span class="chip bg-color">递归</span>
                             </a>
                         
-                            <a href="/tags/Python3/">
-                                <span class="chip bg-color">Python3</span>
+                            <a href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">分治算法</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-04
+                    2020-02-14
                 </div>
                 
 
@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    297
+                    926
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -491,41 +491,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1344-Jump-Game-V"><a href="#1344-Jump-Game-V" class="headerlink" title="1344. Jump Game V"></a>1344. Jump Game V</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/04/cAE6rgJXDdsLm1B.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们设定初始值 <code>max_i</code> 为当前可跳的最远位置，遍历一遍数组，维护 <code>max_i</code>。遍历结束后，如果 <code>max_i &gt;= len(nums) - 1</code>，这时说明能够到达最后位置,返回 <code>True</code>，否则返回 <code>False</code>。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>Python3</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">canJump</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 初始化能到达的最远位置</span>
-        max_i <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> max_i <span class="token operator">>=</span> i <span class="token operator">and</span> i <span class="token operator">+</span> num <span class="token operator">></span> max_i<span class="token punctuation">:</span>
-                max_i <span class="token operator">=</span> i <span class="token operator">+</span> num
-        <span class="token keyword">return</span> max_i <span class="token operator">>=</span> i <span class="token comment" spellcheck="true"># >= 是因为可能会跳出界</span></code></pre>
-<p>C++</p>
-<pre class=" language-C++"><code class="language-C++">class Solution {
-public:
-    bool canJump(vector<int>& nums) {
-        int max_i = 0;
-        for(int i = 0; i<nums.size();i++){
-            if(max_i >= i && i + nums[i] > max_i){
-                max_i = i + nums[i];
-            }
-        }
-        return max_i >= nums.size() - 1;
-    }
-};</code></pre>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)。</li>
-<li>空间复杂度：O(1)。</li>
+                <h1 id="08-06-Hanota-LCCI"><a href="#08-06-Hanota-LCCI" class="headerlink" title="08.06. Hanota LCCI"></a>08.06. Hanota LCCI</h1><blockquote>
+<p>相传在很久以前，有个寺庙里的几个和尚整天不停地移动着 64 个盘子，日复一日，年复一年。据说，当 64 个盘子全部移完的那一天就是世界末日…</p>
+</blockquote>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p><img src="https://i.loli.net/2020/02/14/i3qNER9GvYDpPX1.png" alt=""><br>有 A,B,C 三根柱子，A 上面有 n 个盘子，我们想把 A 上面的盘子移动到 C 上，但是要满足以下三个条件：</p>
+<ol>
+<li>每次只能移动一个盘子;</li>
+<li>盘子只能从柱子顶端滑出移到下一根柱子;</li>
+<li>盘子只能叠在比它大的盘子上。</li>
+</ol>
+<p><img src="https://pic.leetcode-cn.com/7043dec266338d396d186805072660d5f9517e2c1008af80d461b553c5b32470-p1.png" alt="p1.png"></p>
+<h3 id="解题思路：递归与分治"><a href="#解题思路：递归与分治" class="headerlink" title="解题思路：递归与分治"></a>解题思路：递归与分治</h3><p>这是一道递归方法的经典题目，乍一想还挺难理清头绪的，我们不妨先从简单的入手。</p>
+<p>假设 <code>n = 1</code>,只有一个盘子，很简单，直接把它从 A 中拿出来，移到 C 上；</p>
+<p>如果 <code>n = 2</code> 呢？这时候我们就要借助 B 了，因为小盘子必须时刻都在大盘子上面，共需要 4 步。</p>
+<p><img src="https://pic.leetcode-cn.com/f6f3b97651247c9ff846f115e1866ab364b1c0e265fd51689ddd6a8ca1758482-0806.gif" alt="0806.gif"></p>
+<p>如果  <code>n &gt; 2</code> 呢？思路和上面是一样的，我们把 n 个盘子也看成两个部分，一部分有 1 个盘子，另一部分有 n - 1 个盘子。</p>
+<p><img src="https://pic.leetcode-cn.com/3bffd1a1faf4323a92b659e37d7e2cd6c79fe074602b2977f4a7931fe82bbb13-08061.gif" alt="08061.gif"></p>
+<p>观察上图，你可能会问：“那 n - 1 个盘子是怎么从 A 移到 C 的呢？”</p>
+<p>注意，<strong>当你在思考这个问题的时候，就将最初的 n 个盘子从 A 移到 C 的问题，转化成了将 n - 1 个盘子从 A 移到 C 的问题，</strong> 依次类推，直至转化成 1 个盘子的问题时，问题也就解决了。这就是分治的思想。 </p>
+<p>而实现分治思想的常用方法就是递归。不难发现，如果原问题可以分解成若干个与原问题结构相同但规模较小的子问题时，往往可以用递归的方法解决。具体解决办法如下：</p>
+<ul>
+<li><code>n = 1</code>时，直接把盘子从 A 移到 C；</li>
+<li><code>n &gt; 1</code>时,<ul>
+<li>先把上面 n - 1 个盘子从 A 移到 B（子问题，递归）；</li>
+<li>再将最大的盘子从 A 移到 C；</li>
+<li>再将 B 上 n - 1 个盘子从 B 移到 C（子问题，递归）。</li>
 </ul>
-<h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul>
-<li><a href="//0045.md">跳跃游戏 Ⅱ</a></li>
-<li><a href="//1306.md">跳跃游戏 Ⅲ</a></li>
-<li>跳跃游戏 Ⅳ</li>
-<li>跳跃游戏 Ⅴ</li>
+</li>
 </ul>
-<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>动态规划的题目比较难，我们需要吃透几个题目，慢慢去体会~加油！</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">hanota</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> A<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> B<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> C<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        n <span class="token operator">=</span> len<span class="token punctuation">(</span>A<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>move<span class="token punctuation">(</span>n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 定义move 函数移动汉诺塔</span>
+    <span class="token keyword">def</span> <span class="token function">move</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            C<span class="token punctuation">.</span>append<span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            A<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> 
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>move<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">,</span> B<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 将A上面n-1个通过C移到B</span>
+            C<span class="token punctuation">.</span>append<span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>          <span class="token comment" spellcheck="true"># 将A最后一个移到C</span>
+            A<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>                  <span class="token comment" spellcheck="true"># 这时，A空了</span>
+            self<span class="token punctuation">.</span>move<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span>B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 将B上面n-1个通过空的A移到C</span></code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">hanota</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> A<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> B<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> C<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> A<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">move</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> A<span class="token punctuation">,</span> B<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> A<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> B<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> C<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            C<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            A<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">move</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">,</span> B<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 将A上面n-1个通过C移到B</span>
+        C<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 将A最后一个移到C</span>
+        A<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">// 这时，A空了</span>
+        <span class="token function">move</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span> B<span class="token punctuation">,</span> A<span class="token punctuation">,</span> C<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 将B上面n-1个通过空的A移到C</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="复杂度分析：世界会毁灭吗"><a href="#复杂度分析：世界会毁灭吗" class="headerlink" title="复杂度分析：世界会毁灭吗"></a>复杂度分析：世界会毁灭吗</h3><ul>
+<li>时间复杂度：$O(2^n-1)$。一共需要移动的次数。</li>
+<li>空间复杂度：$O(1)$。</li>
+</ul>
+<p>当 <code>n = 64</code>时，也就是有 64 个盘子的时候，如果每秒移动一个盘子，大约需要 $1.8\times10^{19}$ 秒…</p>
+<p>那个时候地球会毁灭吗？</p>
+<p>也许会，也许不会。</p>
 <p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
 <p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
 <script>
@@ -571,7 +606,7 @@ public:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/04/0055/">http://ml-zimingmeng.github.io/2020/02/04/0055/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/14/con0806/">http://ml-zimingmeng.github.io/2020/02/14/con0806/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,12 +648,12 @@ public:
                                     <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
-                                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">贪心算法</span>
+                                <a href="/tags/%E9%80%92%E5%BD%92/">
+                                    <span class="chip bg-color">递归</span>
                                 </a>
                             
-                                <a href="/tags/Python3/">
-                                    <span class="chip bg-color">Python3</span>
+                                <a href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">分治算法</span>
                                 </a>
                             
                         </div>
@@ -789,7 +824,7 @@ public:
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-04T18-40-00',
+        id: '2020-02-14T16-22-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -810,29 +845,30 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/04/0240/">
+                <a href="/2020/02/14/con0806/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="240. Search a 2D Matrix II">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="08.06. Hanota LCCI">
                         
-                        <span class="card-title">240. Search a 2D Matrix II</span>
+                        <span class="card-title">08.06. Hanota LCCI</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            剑指offer 和 LeetCode 经典题目
+                            64 个盘子移完的时候，世界会毁灭吗？
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -845,6 +881,7 @@ public:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -852,12 +889,12 @@ public:
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/Python3/">
-                        <span class="chip bg-color">Python3</span>
+                    <a href="/tags/%E9%80%92%E5%BD%92/">
+                        <span class="chip bg-color">递归</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">分治算法</span>
                     </a>
                     
                 </div>
@@ -871,24 +908,24 @@ public:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/04/1344/">
+                <a href="/2020/02/10/1347/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="1344. Jump Game V">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1347. Minimum Number of Steps to Make Two Strings Anagram">
                         
-                        <span class="card-title">1344. Jump Game V</span>
+                        <span class="card-title">1347. Minimum Number of Steps to Make Two Strings Anagram</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一举攻破跳跃游戏的全部题目
+                            字母异位词指字母相同，但排列不同的字符串。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
                             </span>
                         <span class="publish-author">
                             
@@ -909,12 +946,8 @@ public:
                         <span class="chip bg-color">LeetCode</span>
                     </a>
                     
-                    <a href="/tags/Python3/">
-                        <span class="chip bg-color">Python3</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/%E6%95%B0%E7%BB%84/">
+                        <span class="chip bg-color">数组</span>
                     </a>
                     
                 </div>
