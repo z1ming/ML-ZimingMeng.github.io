@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ml-zimingmeng.github.io/"/>
-  <updated>2020-02-14T08:23:27.972Z</updated>
+  <updated>2020-02-16T15:02:06.215Z</updated>
   <id>http://ml-zimingmeng.github.io/</id>
   
   <author>
@@ -15,6 +15,161 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试题12. 矩阵中的路径</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/16/lcof12/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/16/lcof12/</id>
+    <published>2020-02-16T15:00:00.000Z</published>
+    <updated>2020-02-16T15:02:06.215Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;面试题12-矩阵中的路径&quot;&gt;&lt;a href=&quot;#面试题12-矩阵中的路径&quot; class=&quot;headerlink&quot; title=&quot;面试题12. 矩阵中的路径&quot;&gt;&lt;/a&gt;面试题12. 矩阵中的路径&lt;/h1&gt;&lt;h3 id=&quot;题目描述（难度：中等）&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="深度优先搜索" scheme="http://ml-zimingmeng.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="递归" scheme="http://ml-zimingmeng.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题13. 机器人的运动范围</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/16/lcof13/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/16/lcof13/</id>
+    <published>2020-02-16T15:00:00.000Z</published>
+    <updated>2020-02-16T15:06:35.157Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;面试题13-机器人的运动范围&quot;&gt;&lt;a href=&quot;#面试题13-机器人的运动范围&quot; class=&quot;headerlink&quot; title=&quot;面试题13. 机器人的运动范围&quot;&gt;&lt;/a&gt;面试题13. 机器人的运动范围&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="深度优先搜索" scheme="http://ml-zimingmeng.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="广度优先搜索" scheme="http://ml-zimingmeng.github.io/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5342. 最多可以参加的会议数目</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/</id>
+    <published>2020-02-16T15:00:00.000Z</published>
+    <updated>2020-02-16T15:23:34.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;5342-最多可以参加的会议数目&quot;&gt;&lt;a href=&quot;#5342-最多可以参加的会议数目&quot; class=&quot;headerlink&quot; title=&quot;5342. 最多可以参加的会议数目&quot;&gt;&lt;/a&gt;5342. 最多可以参加的会议数目&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="贪心算法" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="优先队列" scheme="http://ml-zimingmeng.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+      <category term="力扣周赛" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%9B%E6%89%A3%E5%91%A8%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题31. 栈的压入、弹出序列</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/16/lcof31/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/16/lcof31/</id>
+    <published>2020-02-16T14:53:00.000Z</published>
+    <updated>2020-02-16T15:13:48.043Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;面试题31-栈的压入、弹出序列&quot;&gt;&lt;a href=&quot;#面试题31-栈的压入、弹出序列&quot; class=&quot;headerlink&quot; title=&quot;面试题31. 栈的压入、弹出序列&quot;&gt;&lt;/a&gt;面试题31. 栈的压入、弹出序列&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="贪心算法" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="栈" scheme="http://ml-zimingmeng.github.io/tags/%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题44. 数字序列中某一位的数字</title>
+    <link href="http://ml-zimingmeng.github.io/2020/02/16/lcof44/"/>
+    <id>http://ml-zimingmeng.github.io/2020/02/16/lcof44/</id>
+    <published>2020-02-16T14:53:00.000Z</published>
+    <updated>2020-02-16T14:55:32.769Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;面试题44-数字序列中某一位的数字&quot;&gt;&lt;a href=&quot;#面试题44-数字序列中某一位的数字&quot; class=&quot;headerlink&quot; title=&quot;面试题44. 数字序列中某一位的数字&quot;&gt;&lt;/a&gt;面试题44. 数字序列中某一位的数字&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
+    
+      <category term="数学" scheme="http://ml-zimingmeng.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>08.06. Hanota LCCI</title>
@@ -344,9 +499,9 @@
     
       <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
     
-      <category term="双指针" scheme="http://ml-zimingmeng.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
       <category term="动态规划" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="双指针" scheme="http://ml-zimingmeng.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
   </entry>
   
@@ -468,160 +623,9 @@
     
       <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
     
+      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
+    
       <category term="贪心算法" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1344. Jump Game V</title>
-    <link href="http://ml-zimingmeng.github.io/2020/02/04/1344/"/>
-    <id>http://ml-zimingmeng.github.io/2020/02/04/1344/</id>
-    <published>2020-02-04T10:40:00.000Z</published>
-    <updated>2020-02-05T03:36:46.729Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1344-Jump-Game-V&quot;&gt;&lt;a href=&quot;#1344-Jump-Game-V&quot; class=&quot;headerlink&quot; title=&quot;1344. Jump Game V&quot;&gt;&lt;/a&gt;1344. Jump Game V&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-      <category term="Python3" scheme="http://ml-zimingmeng.github.io/tags/Python3/"/>
-    
-      <category term="动态规划" scheme="http://ml-zimingmeng.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1306. Jump Game III</title>
-    <link href="http://ml-zimingmeng.github.io/2020/02/04/1306/"/>
-    <id>http://ml-zimingmeng.github.io/2020/02/04/1306/</id>
-    <published>2020-02-04T02:53:00.000Z</published>
-    <updated>2020-02-05T03:36:31.676Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1306-Jump-Game-III&quot;&gt;&lt;a href=&quot;#1306-Jump-Game-III&quot; class=&quot;headerlink&quot; title=&quot;1306. Jump Game III&quot;&gt;&lt;/a&gt;1306. Jump Game III&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-      <category term="队列" scheme="http://ml-zimingmeng.github.io/tags/%E9%98%9F%E5%88%97/"/>
-    
-      <category term="BFS" scheme="http://ml-zimingmeng.github.io/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>45. Jump Game II</title>
-    <link href="http://ml-zimingmeng.github.io/2020/02/03/0045/"/>
-    <id>http://ml-zimingmeng.github.io/2020/02/03/0045/</id>
-    <published>2020-02-03T11:03:00.000Z</published>
-    <updated>2020-02-07T08:39:09.136Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;45-Jump-Game-II&quot;&gt;&lt;a href=&quot;#45-Jump-Game-II&quot; class=&quot;headerlink&quot; title=&quot;45. Jump Game II&quot;&gt;&lt;/a&gt;45. Jump Game II&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-      <category term="数组" scheme="http://ml-zimingmeng.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="贪心" scheme="http://ml-zimingmeng.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1. Two Sum</title>
-    <link href="http://ml-zimingmeng.github.io/2020/01/31/0001/"/>
-    <id>http://ml-zimingmeng.github.io/2020/01/31/0001/</id>
-    <published>2020-01-31T05:04:00.000Z</published>
-    <updated>2020-02-07T08:37:52.478Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1-Two-Sum&quot;&gt;&lt;a href=&quot;#1-Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;1. Two Sum&quot;&gt;&lt;/a&gt;1. Two Sum&lt;/h1&gt;&lt;h3 id=&quot;题目描述（难度：简单）&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="哈希表" scheme="http://ml-zimingmeng.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>373. Find K Pairs with Smallest Sums</title>
-    <link href="http://ml-zimingmeng.github.io/2020/01/24/0151-wei-wan-cheng/"/>
-    <id>http://ml-zimingmeng.github.io/2020/01/24/0151-wei-wan-cheng/</id>
-    <published>2020-01-23T18:20:00.000Z</published>
-    <updated>2020-02-11T13:59:46.582Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;解法一：暴力&quot;&gt;&lt;a href=&quot;#解法一：暴力&quot; class=&quot;headerlink&quot; title=&quot;解法一：暴力&quot;&gt;&lt;/a&gt;解法一：暴力&lt;/h3&gt;&lt;pre class=&quot; language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="LeetCode" scheme="http://ml-zimingmeng.github.io/tags/LeetCode/"/>
-    
-      <category term="优先队列" scheme="http://ml-zimingmeng.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
