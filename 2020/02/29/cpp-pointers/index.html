@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="20. Valid Parentheses, Z1m">
-    <meta name="description" content="从本题了解堆栈的正确使用">
+    <meta name="keywords" content="cpp-Pointers, Z1m">
+    <meta name="description" content="title: 搞懂 C++ 指针date: 2020-02-29 17:50:00author: Ziming Mtop: falsecover: falsesummary: udacity 的学习笔记，搞懂 &amp;amp; 和 * 的不同应用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>20. Valid Parentheses | Z1m</title>
+    <title>cpp-Pointers | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">20. Valid Parentheses</h1>
+                    <h1 class="description center-align post-title">cpp-Pointers</h1>
                 </div>
             </div>
         </div>
@@ -424,33 +424,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
-                            </a>
-                        
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%A0%88/">
-                                <span class="chip bg-color">栈</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/LeetCode/" class="post-category">
-                                LeetCode
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -459,7 +438,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-08
+                    2020-02-29
                 </div>
                 
 
@@ -468,14 +447,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    499
+                    896
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -491,32 +470,85 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/08/25WtL8CEpMkcvKV.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>当开始接触题目时，我们会不禁想到如果计算出左括号的数量，和右括号的数量，如果每种括号左右数量相同，会不会就是有效的括号了呢？</p>
-<p>事实上不是的，假如输入是 <code>[{]}</code>，每种括号的左右数量分别相等，但不是有效的括号。这是因为结果还与括号的位置有关。</p>
-<p>仔细分析我们发现，对于有效的括号，它的部分子表达式仍然是有效的括号，比如 <code>{()[()]}</code> 是一个有效的括号，<code>()[{}]</code> 是有效的括号，<code>[()]</code> 也是有效的括号。并且当我们每次删除一个最小的括号对时，我们会逐渐将括号删除完。比如下面的例子。</p>
-<p><img src="https://pic.leetcode-cn.com/030f65021c3566468d87504c8ebb9d55c4aa023b66406d80a5aee787b6b203de-p1.png" alt="p1.png"></p>
-<p>这个思考的过程其实就是栈的实现过程。因此我们考虑使用栈，当遇到匹配的最小括号对时，我们将这对括号从栈中删除（即出栈），如果最后栈为空，那么它是有效的括号，反之不是。</p>
-<p><img src="https://pic.leetcode-cn.com/baa8829ac398e665eb645dca29eadd631e2b337e05022aa5a678e091471a4913-20.gif" alt="20.gif"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">isValid</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        dic <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">')'</span><span class="token punctuation">:</span><span class="token string">'('</span><span class="token punctuation">,</span><span class="token string">']'</span><span class="token punctuation">:</span><span class="token string">'['</span><span class="token punctuation">,</span><span class="token string">'}'</span><span class="token punctuation">:</span><span class="token string">'{'</span><span class="token punctuation">}</span>
-        stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> stack <span class="token operator">and</span> i <span class="token keyword">in</span> dic<span class="token punctuation">:</span>
-                <span class="token keyword">if</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> dic<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token boolean">False</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span> stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> <span class="token operator">not</span> stack</code></pre>
-<p>代码中我们使用了哈希表来判断是否能够形成括号，从而决定进行入栈操作还是出栈操作。</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)。遍历了一遍字符串。</li>
-<li>空间复杂度：O(N)。最坏情况下，假如输入是 <code>(((((((</code>，栈的大小将是输入字符串的长度。</li>
+                <p>title: 搞懂 C++ 指针<br>date: 2020-02-29 17:50:00<br>author: Ziming M<br>top: false<br>cover: false<br>summary: udacity 的学习笔记，搞懂 &amp; 和 * 的不同应用。<br>categories: C++ 编程<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>指针</li>
 </ul>
-<p>如有其他代码欢迎提供<del>如有问题欢迎讨论</del></p>
-<p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
+<h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p>指针一直是我们学习 C ++ 的绊脚石，但不必如此！</p>
+<blockquote>
+<p><em>C ++指针只是一个变量，用于存储程序中对象的内存地址。</em></p>
+</blockquote>
+<h2 id="Accessing-a-Memory-Address"><a href="#Accessing-a-Memory-Address" class="headerlink" title="Accessing a Memory Address"></a>Accessing a Memory Address</h2><p>Each variable in a program stores its contents in the computer’s memory, and each chunk of the memory has an address number. For a given variable, the memory address can be accessed using an ampersand in front of the variable. To see an example of this, execute the following code which displays the <a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank" rel="noopener">hexadecimal</a> memory addresses of the variables <code>i</code> and <code>j</code>:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment" spellcheck="true">// Print the memory addresses of i and j</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The address of i is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The address of j is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>j <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>At this point, you might be wondering why the same symbol <code>&amp;</code> can be used to both access memory addresses and, as you’ve seen before, pass references into a function. This is a great thing to wonder about. The overloading of the ampersand symbol <code>&amp;</code> and the <code>*</code> symbol probably contribute to much of the confusion around pointers.</p>
+<blockquote>
+<p><strong>The symbols <code>&amp;</code> and <code>*</code> have a different meaning, depending on which side of an equation they appear.</strong></p>
+</blockquote>
+<p><em>This is extremely important to remember.</em> For the <code>&amp;</code> symbol, if it appears on the left side of an equation (e.g. when declaring a variable), it means that the variable is declared as a reference. If the <code>&amp;</code> appears on the right side of an equation, or before a previously defined variable, it is used to return a memory address, as in the example above.</p>
+<p>Try using the cell above to create new variables and print out their addresses! </p>
+<h2 id="Storing-a-Memory-Address-int-type"><a href="#Storing-a-Memory-Address-int-type" class="headerlink" title="Storing a Memory Address (int type)"></a>Storing a Memory Address (int type)</h2><p>Once a memory address is accessed, you can store it using a pointer. A pointer can be declared by using the <code>*</code> operator in the declaration. See the following code for an example:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// A pointer pointer_to_i is declared and initialized to the address of i.</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> pointer_to_i <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Print the memory addresses of i and j</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The address of i is:          "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The variable pointer_to_i is: "</span> <span class="token operator">&lt;&lt;</span> pointer_to_i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>As you can see from the code, the variable <code>pointer_to_i</code> is declared as a pointer to an <code>int</code> using the <code>*</code> symbol, and <code>pointer_to_i</code> is set to the address of <code>i</code>. From the printout, it can be seen that <code>pointer_to_i</code> holds the same value as the address of <code>i</code>.</p>
+<h2 id="Getting-an-Object-Back-from-a-Pointer-Address"><a href="#Getting-an-Object-Back-from-a-Pointer-Address" class="headerlink" title="Getting an Object Back from a Pointer Address"></a>Getting an Object Back from a Pointer Address</h2><p>Once you have a pointer, you may want to retrieve the object it is pointing to. In this case, the <code>*</code> symbol can be used again. This time, however, it will appear on the right hand side of an equation or in front of an already-defined variable, so the meaning is different. In this case, it is called the “dereferencing operator”, and it returns the object being pointed to. You can see how this works with the code below:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// A pointer pointer_to_i is declared and initialized to the address of i.</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> pointer_to_i <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Print the memory addresses of i and j</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The address of i is:          "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The variable pointer_to_i is: "</span> <span class="token operator">&lt;&lt;</span> pointer_to_i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of the variable pointed to by pointer_to_i is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>pointer_to_i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>In the following example, the code is similar to above, except that the object that is being pointed to is changed before the pointer is dereferenced. Before executing the following code, guess what you think will happen to the value of the dereferenced pointer.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// A pointer pointer_to_i is declared and initialized to the address of i.</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> pointer_to_i <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Print the memory addresses of i and j</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The address of i is:          "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The variable pointer_to_i is: "</span> <span class="token operator">&lt;&lt;</span> pointer_to_i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// The value of i is changed.</span>
+    i <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The new value of the variable i is                     : "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">&amp;</span>i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of the variable pointed to by pointer_to_i is: "</span> <span class="token operator">&lt;&lt;</span> pointer_to_i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>As you can see, an object or variable can be changed while a pointer is pointing to it.</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -560,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/02/08/0020/">http://ml-zimingmeng.github.io/2020/02/08/0020/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/02/29/cpp-pointers/">http://ml-zimingmeng.github.io/2020/02/29/cpp-pointers/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,19 +629,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
-                                </a>
-                            
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%A0%88/">
-                                    <span class="chip bg-color">栈</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -778,7 +798,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-02-08T20-32-00',
+        id: '2020-02-29T17-48-49',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -799,57 +819,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/10/5335/">
+                <a href="/2020/02/29/cpp-pointers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="1349. Maximum Students Taking Exam">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="cpp-Pointers">
                         
-                        <span class="card-title">1349. Maximum Students Taking Exam</span>
+                        <span class="card-title">cpp-Pointers</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            当我第一次接触压缩状态 DP 时，并不知道它能干什么...
+                            title: 搞懂 C++ 指针date: 2020-02-29 17:50:00author: Ziming Mtop: falsecover: falsesummary: udacity 的学习笔记，搞懂 &amp; 和 * 的不同应用
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Ziming M
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8E%8B%E7%BC%A9%E7%8A%B6%E6%80%81/">
-                        <span class="chip bg-color">压缩状态</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -860,31 +862,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/08/0017/">
+                <a href="/2020/02/28/python-iterator/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="17. Letter Combinations of a Phone Number">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Python 迭代器">
                         
-                        <span class="card-title">17. Letter Combinations of a Phone Number</span>
+                        <span class="card-title">Python 迭代器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            有回溯的地方，就有迭代...
+                            Python 迭代器，说难也不难
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
+                            <a href="/categories/Python%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    Python编程
                                 </a>
                             
                             
@@ -894,16 +896,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/Python3/">
+                        <span class="chip bg-color">Python3</span>
                     </a>
                     
-                    <a href="/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">回溯算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">队列</span>
+                    <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+                        <span class="chip bg-color">迭代器</span>
                     </a>
                     
                 </div>

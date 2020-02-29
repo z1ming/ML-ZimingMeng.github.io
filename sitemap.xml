@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ml-zimingmeng.github.io/2020/02/29/cpp-pointers/</loc>
+    
+    <lastmod>2020-02-29T09:52:03.874Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ml-zimingmeng.github.io/2020/02/28/python-iterator/</loc>
     
     <lastmod>2020-02-28T12:32:58.780Z</lastmod>
