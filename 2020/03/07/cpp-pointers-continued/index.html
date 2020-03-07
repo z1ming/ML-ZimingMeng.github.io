@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="1. Two Sum, Z1m">
-    <meta name="description" content="一网打尽从两数之和到四数之和">
+    <meta name="keywords" content="C++ 指针, Z1m">
+    <meta name="description" content="udacity 的学习笔记，搞懂 &amp; 和 * 的不同应用。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>1. Two Sum | Z1m</title>
+    <title>C++ 指针 | Z1m</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">1. Two Sum</h1>
+                    <h1 class="description center-align post-title">C++ 指针</h1>
                 </div>
             </div>
         </div>
@@ -426,12 +426,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                <span class="chip bg-color">哈希表</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">指针</span>
                             </a>
                         
                     </div>
@@ -442,8 +442,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode/" class="post-category">
-                                LeetCode
+                            <a href="/categories/C-%E7%BC%96%E7%A8%8B/" class="post-category">
+                                C++ 编程
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-31
+                    2020-03-07
                 </div>
                 
 
@@ -464,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    219
+                    757
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -487,28 +487,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><h3 id="题目描述（难度：简单）"><a href="#题目描述（难度：简单）" class="headerlink" title="题目描述（难度：简单）"></a>题目描述（难度：简单）</h3><p><img src="https://i.loli.net/2020/02/07/drzu8OcZ9VhbKoG.png" alt=""></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>通过迭代将元素添加到哈希表中，同时我们比较该元素的对应元素是否已经存在与哈希表中，如果存在，我们直接返回答案。</p>
-<p><img src="https://i.loli.net/2020/02/07/COeJNI5itlf8qLV.gif" alt="fig 1"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        hashmap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-        <span class="token keyword">for</span> idx<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">if</span> target <span class="token operator">-</span> num <span class="token keyword">in</span> hashmap<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token punctuation">[</span>hashmap<span class="token punctuation">[</span>target <span class="token operator">-</span> num<span class="token punctuation">]</span><span class="token punctuation">,</span>idx<span class="token punctuation">]</span>
-            <span class="token keyword">else</span><span class="token punctuation">:</span>
-                hashmap<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> idx</code></pre>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li>时间复杂度：O(N)</li>
-<li>空间复杂度：O(N)</li>
-</ul>
-<h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><p>不妨我们趁热打铁，看看进阶题目！</p>
-<ul>
-<li>15.三数之和</li>
-<li>18.四数之和</li>
-</ul>
-<p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p>
-<p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p>
+                <h2 id="Pointers-to-Other-Object-Types"><a href="#Pointers-to-Other-Object-Types" class="headerlink" title="Pointers to Other Object Types"></a>Pointers to Other Object Types</h2><p>Although the type of object being pointed to must be included in a pointer declaration, pointers hold the same kind of value for every type of object: just a memory address to where the object is stored. In the following code, a vector is declared. Write your own code to create a pointer to the address of that vector. Then, dereference your pointer and print the value of the first item in the vector.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>vector<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Vector v is declared and initialized to {1, 2, 3}</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Declare and initialize a pointer to the address of v here:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">*</span>pointer_to_v <span class="token operator">=</span> <span class="token operator">&amp;</span>v<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// The following loops over each int a in the vector v and prints.</span>
+    <span class="token comment" spellcheck="true">// Note that this uses a "range-based" for loop:</span>
+    <span class="token comment" spellcheck="true">// https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Res-for-range</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token operator">:</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Dereference your pointer to v and print the int at index 0 here (note: you should print 1):</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The first element of v is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">*</span>pointer_to_v<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Hint: If you’ve created a pointer to <code>v</code>, say <code>pv</code>, you can retrieve <code>v</code> with <code>(*pv)</code>.</p>
+<h2 id="Passing-Pointers-to-a-Function"><a href="#Passing-Pointers-to-a-Function" class="headerlink" title="Passing Pointers to a Function"></a>Passing Pointers to a Function</h2><p>Pointers can be used in another form of pass-by-reference when working with functions. When used in this context, they work much like the references that you used for pass-by reference previously. If the pointer is pointing to a large object, it can be much more efficient to pass the pointer to a function than to pass a copy of the object as with pass-by-value.</p>
+<p>In the following code, a pointer to an int is created, and that pointer is passed to a function. The object pointed to is then modified in the function.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">AddOne</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> j<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Dereference the pointer and increment the int being pointed to.</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>j<span class="token punctuation">)</span><span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Declare a pointer to i:</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> pi <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span class="token punctuation">;</span>
+    <span class="token function">AddOne</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is now: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>When using pointers with functions, some care should be taken. If a pointer is passed to a function and then assigned to a variable in the function that goes out of scope after the function finishes executing, then the pointer will have undefined behavior at that point - the memory it is pointing to might be overwritten by other parts of the program.</p>
+<h2 id="Returning-a-Pointer-from-a-Function"><a href="#Returning-a-Pointer-from-a-Function" class="headerlink" title="Returning a Pointer from a Function"></a>Returning a Pointer from a Function</h2><p>You can also return a pointer from a function. As mentioned just above, if you do this, you must be careful that the object being pointed to doesn’t go out of scope when the function finishes executing. If the object goes out of scope, the memory address being pointed to might then be used for something else.</p>
+<p>In the example below, a reference is passed into a function and a pointer is returned. This is safe since the pointer being returned points to a reference - a variable that exists outside of the function and will not go out of scope in the function.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span><span class="token operator">*</span> <span class="token function">AddOne</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span> j<span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Increment the referenced int and return the</span>
+    <span class="token comment" spellcheck="true">// address of j.</span>
+    j<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>j<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Declare a pointer and initialize to the value</span>
+    <span class="token comment" spellcheck="true">// returned by AddOne:</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> my_pointer <span class="token operator">=</span> <span class="token function">AddOne</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is now: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of the int pointed to by my_pointer is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>my_pointer <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="Your-turn"><a href="#Your-turn" class="headerlink" title="Your turn!"></a>Your turn!</h2><p>Try modifying the code above to get a better sense of how things work. If you are curious, try printing the memory address of <code>i</code> in the <code>main</code>, and the address of <code>j</code> inside the <code>AddOne</code> function. Since <code>j</code> is a reference to <code>i</code>, they should have the address!</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -552,7 +600,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ml-zimingmeng.github.io/2020/01/31/0001/">http://ml-zimingmeng.github.io/2020/01/31/0001/</a>
+                    <a href="http://ml-zimingmeng.github.io/2020/03/07/cpp-pointers-continued/">http://ml-zimingmeng.github.io/2020/03/07/cpp-pointers-continued/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,12 +638,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                                    <span class="chip bg-color">哈希表</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
+                                <a href="/tags/%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">指针</span>
                                 </a>
                             
                         </div>
@@ -766,7 +814,7 @@
         repo: 'ML-ZimingMeng.github.io',
         owner: 'Ziming Meng',
         admin: "Ziming Meng",
-        id: '2020-01-31T13-04-00',
+        id: '2020-03-07T19-20-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -787,54 +835,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/03/0045/">
+                <a href="/2020/03/07/cpp-pointers-continued/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="45. Jump Game II">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C++ 指针">
                         
-                        <span class="card-title">45. Jump Game II</span>
+                        <span class="card-title">C++ 指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一举攻破跳跃游戏的全部题目
+                            udacity 的学习笔记，搞懂 & 和 * 的不同应用。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
+                            <a href="/categories/C-%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    C++ 编程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
-                        <span class="chip bg-color">贪心</span>
+                    <a href="/tags/%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">指针</span>
                     </a>
                     
                 </div>
@@ -848,31 +894,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/24/0151-wei-wan-cheng/">
+                <a href="/2020/02/29/cpp-pointers/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="373. Find K Pairs with Smallest Sums">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="C++ 指针">
                         
-                        <span class="card-title">373. Find K Pairs with Smallest Sums</span>
+                        <span class="card-title">C++ 指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从慢速到快速的五种解法
+                            udacity 的学习笔记，搞懂 & 和 * 的不同应用。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode/" class="post-category">
-                                    LeetCode
+                            <a href="/categories/C-%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    C++ 编程
                                 </a>
                             
                             
@@ -882,12 +928,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">优先队列</span>
+                    <a href="/tags/%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">指针</span>
                     </a>
                     
                 </div>

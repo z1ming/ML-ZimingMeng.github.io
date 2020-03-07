@@ -5,6 +5,33 @@
     
     <entry>
       <title>C++ 指针</title>
+      <link href="/2020/03/07/cpp-pointers-continued/"/>
+      <url>/2020/03/07/cpp-pointers-continued/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Pointers-to-Other-Object-Types"><a href="#Pointers-to-Other-Object-Types" class="headerlink" title="Pointers to Other Object Types"></a>Pointers to Other Object Types</h2><p>Although the type of object being pointed to must be included in a pointer declaration, pointers hold the same kind of value for every type of object: just a memory address to where the object is stored. In the following code, a vector is declared. Write your own code to create a pointer to the address of that vector. Then, dereference your pointer and print the value of the first item in the vector.</p><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span><span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span><span class="token keyword">using</span> std<span class="token operator">::</span>vector<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// Vector v is declared and initialized to {1, 2, 3}</span>    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// Declare and initialize a pointer to the address of v here:</span>    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token operator">*</span>pointer_to_v <span class="token operator">=</span> <span class="token operator">&amp;</span>v<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// The following loops over each int a in the vector v and prints.</span>    <span class="token comment" spellcheck="true">// Note that this uses a "range-based" for loop:</span>    <span class="token comment" spellcheck="true">// https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Res-for-range</span>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token operator">:</span> v<span class="token punctuation">)</span> <span class="token punctuation">{</span>        cout <span class="token operator">&lt;&lt;</span> a <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">// Dereference your pointer to v and print the int at index 0 here (note: you should print 1):</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The first element of v is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token operator">*</span>pointer_to_v<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>Hint: If you’ve created a pointer to <code>v</code>, say <code>pv</code>, you can retrieve <code>v</code> with <code>(*pv)</code>.</p><h2 id="Passing-Pointers-to-a-Function"><a href="#Passing-Pointers-to-a-Function" class="headerlink" title="Passing Pointers to a Function"></a>Passing Pointers to a Function</h2><p>Pointers can be used in another form of pass-by-reference when working with functions. When used in this context, they work much like the references that you used for pass-by reference previously. If the pointer is pointing to a large object, it can be much more efficient to pass the pointer to a function than to pass a copy of the object as with pass-by-value.</p><p>In the following code, a pointer to an int is created, and that pointer is passed to a function. The object pointed to is then modified in the function.</p><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span><span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">AddOne</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> j<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// Dereference the pointer and increment the int being pointed to.</span>    <span class="token punctuation">(</span><span class="token operator">*</span>j<span class="token punctuation">)</span><span class="token operator">++</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// Declare a pointer to i:</span>    <span class="token keyword">int</span><span class="token operator">*</span> pi <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span class="token punctuation">;</span>    <span class="token function">AddOne</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span><span class="token punctuation">;</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is now: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>When using pointers with functions, some care should be taken. If a pointer is passed to a function and then assigned to a variable in the function that goes out of scope after the function finishes executing, then the pointer will have undefined behavior at that point - the memory it is pointing to might be overwritten by other parts of the program.</p><h2 id="Returning-a-Pointer-from-a-Function"><a href="#Returning-a-Pointer-from-a-Function" class="headerlink" title="Returning a Pointer from a Function"></a>Returning a Pointer from a Function</h2><p>You can also return a pointer from a function. As mentioned just above, if you do this, you must be careful that the object being pointed to doesn’t go out of scope when the function finishes executing. If the object goes out of scope, the memory address being pointed to might then be used for something else.</p><p>In the example below, a reference is passed into a function and a pointer is returned. This is safe since the pointer being returned points to a reference - a variable that exists outside of the function and will not go out of scope in the function.</p><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span><span class="token keyword">using</span> std<span class="token operator">::</span>cout<span class="token punctuation">;</span><span class="token keyword">int</span><span class="token operator">*</span> <span class="token function">AddOne</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">&amp;</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// Increment the referenced int and return the</span>    <span class="token comment" spellcheck="true">// address of j.</span>    j<span class="token operator">++</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token operator">&amp;</span>j<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// Declare a pointer and initialize to the value</span>    <span class="token comment" spellcheck="true">// returned by AddOne:</span>    <span class="token keyword">int</span><span class="token operator">*</span> my_pointer <span class="token operator">=</span> <span class="token function">AddOne</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of i is now: "</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The value of the int pointed to by my_pointer is: "</span> <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>my_pointer <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h2 id="Your-turn"><a href="#Your-turn" class="headerlink" title="Your turn!"></a>Your turn!</h2><p>Try modifying the code above to get a better sense of how things work. If you are curious, try printing the memory address of <code>i</code> in the <code>main</code>, and the address of <code>j</code> inside the <code>AddOne</code> function. Since <code>j</code> is a reference to <code>i</code>, they should have the address!</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++ 指针</title>
       <link href="/2020/02/29/cpp-pointers/"/>
       <url>/2020/02/29/cpp-pointers/</url>
       
@@ -50,6 +77,37 @@
             <tag> Python3 </tag>
             
             <tag> 迭代器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>5342. 最多可以参加的会议数目</title>
+      <link href="/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/"/>
+      <url>/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="5342-最多可以参加的会议数目"><a href="#5342-最多可以参加的会议数目" class="headerlink" title="5342. 最多可以参加的会议数目"></a>5342. 最多可以参加的会议数目</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/16/koq2pG5by7zL1Ka.png" alt=""></p><h3 id="1-什么是优先队列"><a href="#1-什么是优先队列" class="headerlink" title="1. 什么是优先队列"></a>1. 什么是优先队列</h3><p>我们首先来回顾一下队列吧，队列是一种先进先出（FIFO）的数据结构，它的本质是一个线性表，只能在表的一端插入值，在表的另一端删除值。</p><ul><li>队尾（rear）：允许插入的一端；</li><li>队头（front）：允许删除的一端。<br><img src="https://pic.leetcode-cn.com/b625dfb997f7d1a45f3a060c4b1c90199fbea387702973e35bdd354fc12069f1-%E5%B9%BB%E7%81%AF%E7%89%871.JPG" alt="幻灯片1.JPG"></li></ul><p>优先队列也是一种队列，与队列不同的是，优先队列不再遵循先入先出的原则，而是分成了两种情况：</p><ul><li>最大优先队列，无论入队顺序，当前最大的元素优先出队。</li><li>最小优先队列，无论入队顺序，当前最小的元素优先出队。</li></ul><p>对于最小优先队列，队列中的每个元素都有一个权值，权值小的优先出队。假如我们将自身的数值作为权值，那么最小优先队列中较小的数会排在队列的前面，当加入一个新值 <code>3</code> 时，<code>3</code> 会在队列中处于合适的位置。<br><img src="https://pic.leetcode-cn.com/9a5fe2634473a792d6644492a465905c041c156f1362624aea924958192d1991-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE.png" alt="最多可以参加的会议.png"></p><p>当进行出队操作时，每次会从队首弹出队列中最小的元素：<br><img src="https://pic.leetcode-cn.com/1f0822918ada35f96954f49b074263c9747865409c466add72ab708b8e5d9258-%E5%B9%BB%E7%81%AF%E7%89%872.PNG" alt="幻灯片2.PNG"></p><p>最大优先队列则与之相反，最先弹出队列中最大的元素。</p><p>事实上，优先队列的本质上是一个堆，它是一棵完全二叉树，分为小顶堆和大顶堆：</p><ul><li>小顶堆是每一个根节点小于左右子节点的完全二叉树，堆顶元素最小，对应最小优先队列；</li><li>大顶堆是每一个根节点大于左右子节点的完全二叉树，堆顶元素最大，对应最大优先队列；</li></ul><p>由于删除堆顶元素时的时间复杂度为 $O(logN)$，因此在优先队列中入队和出队操作的时间复杂度也是 $O(logN)$。</p><h3 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h3><p>贪心思想：<strong>为了能参加最多的会议，我们尽量每次参加开始时间最早的会议。</strong> 注意以下问题：</p><ol><li>比如某会议时间是 <code>[1,10]</code>，那么我们先尽量尝试第 <code>1</code> 天参加，如果参加了别的会议，再尝试第 <code>2</code> 天…</li><li>如果两个会议开始时间相同，我们优先选择结束时间早的那个会议。比如 <code>[1,4]</code> 和 <code>[1,3]</code>，利用优先队列，第 <code>1</code> 天先参加 <code>[1,3]</code>，第 <code>2</code> 天参加 <code>[1,4]</code>。<h4 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h4>我们将 <code>events</code> 按照最小优先队列（小顶堆）的结构来储存，当队列不为空时，弹出队首元素，</li><li>判断能否参加会议，若结束时间小于当天，说明过期了不能参加，跳过；</li><li>如果可以参加，比较当天和开始时间：<ul><li>如果当天大于开始时间，说明我们没有必要非在今天参加，把 <code>[当天，结束时间]</code>重新加入优先队列，以查找有没有只能在今天参加的会议；</li><li>如果当天等于开始时间，我们立即开始这个会议。因为优先队列保证开始时间相同时结束时间是递增的。</li></ul></li></ol><p><img src="https://i.loli.net/2020/02/16/rpolRWYUaIh2ZMu.gif" alt="Priority queue"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">maxEvents</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> events<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>        res <span class="token operator">=</span> <span class="token number">0</span>        heapq<span class="token punctuation">.</span>heapify<span class="token punctuation">(</span>events<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 把events转化成堆结构</span>        cur <span class="token operator">=</span> events<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>        <span class="token keyword">while</span> events<span class="token punctuation">:</span>            s<span class="token punctuation">,</span> e <span class="token operator">=</span> heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>events<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># print([s,e])</span>            <span class="token keyword">if</span> e <span class="token operator">&lt;</span> cur<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 如果结束时间小于当前天，说明过期了，不能参加</span>                <span class="token keyword">continue</span>            <span class="token comment" spellcheck="true"># 如果开始时间小于当天，我们也不必今天参加，可以在（当天，结束天）任何一天参加</span>            <span class="token keyword">if</span> s <span class="token operator">&lt;</span> cur<span class="token punctuation">:</span>                 heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>events<span class="token punctuation">,</span><span class="token punctuation">[</span>cur<span class="token punctuation">,</span>e<span class="token punctuation">]</span><span class="token punctuation">)</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                cur <span class="token operator">=</span> max<span class="token punctuation">(</span>cur <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>s <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>                res <span class="token operator">+=</span> <span class="token number">1</span>        <span class="token keyword">return</span> res </code></pre><p>如有问题，欢迎讨论~</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 贪心算法 </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 优先队列 </tag>
+            
+            <tag> 力扣周赛 </tag>
             
         </tags>
       
@@ -116,37 +174,6 @@
     
     
     <entry>
-      <title>5342. 最多可以参加的会议数目</title>
-      <link href="/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/"/>
-      <url>/2020/02/16/zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/</url>
-      
-        <content type="html"><![CDATA[<h1 id="5342-最多可以参加的会议数目"><a href="#5342-最多可以参加的会议数目" class="headerlink" title="5342. 最多可以参加的会议数目"></a>5342. 最多可以参加的会议数目</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/16/koq2pG5by7zL1Ka.png" alt=""></p><h3 id="1-什么是优先队列"><a href="#1-什么是优先队列" class="headerlink" title="1. 什么是优先队列"></a>1. 什么是优先队列</h3><p>我们首先来回顾一下队列吧，队列是一种先进先出（FIFO）的数据结构，它的本质是一个线性表，只能在表的一端插入值，在表的另一端删除值。</p><ul><li>队尾（rear）：允许插入的一端；</li><li>队头（front）：允许删除的一端。<br><img src="https://pic.leetcode-cn.com/b625dfb997f7d1a45f3a060c4b1c90199fbea387702973e35bdd354fc12069f1-%E5%B9%BB%E7%81%AF%E7%89%871.JPG" alt="幻灯片1.JPG"></li></ul><p>优先队列也是一种队列，与队列不同的是，优先队列不再遵循先入先出的原则，而是分成了两种情况：</p><ul><li>最大优先队列，无论入队顺序，当前最大的元素优先出队。</li><li>最小优先队列，无论入队顺序，当前最小的元素优先出队。</li></ul><p>对于最小优先队列，队列中的每个元素都有一个权值，权值小的优先出队。假如我们将自身的数值作为权值，那么最小优先队列中较小的数会排在队列的前面，当加入一个新值 <code>3</code> 时，<code>3</code> 会在队列中处于合适的位置。<br><img src="https://pic.leetcode-cn.com/9a5fe2634473a792d6644492a465905c041c156f1362624aea924958192d1991-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE.png" alt="最多可以参加的会议.png"></p><p>当进行出队操作时，每次会从队首弹出队列中最小的元素：<br><img src="https://pic.leetcode-cn.com/1f0822918ada35f96954f49b074263c9747865409c466add72ab708b8e5d9258-%E5%B9%BB%E7%81%AF%E7%89%872.PNG" alt="幻灯片2.PNG"></p><p>最大优先队列则与之相反，最先弹出队列中最大的元素。</p><p>事实上，优先队列的本质上是一个堆，它是一棵完全二叉树，分为小顶堆和大顶堆：</p><ul><li>小顶堆是每一个根节点小于左右子节点的完全二叉树，堆顶元素最小，对应最小优先队列；</li><li>大顶堆是每一个根节点大于左右子节点的完全二叉树，堆顶元素最大，对应最大优先队列；</li></ul><p>由于删除堆顶元素时的时间复杂度为 $O(logN)$，因此在优先队列中入队和出队操作的时间复杂度也是 $O(logN)$。</p><h3 id="2-解题思路"><a href="#2-解题思路" class="headerlink" title="2. 解题思路"></a>2. 解题思路</h3><p>贪心思想：<strong>为了能参加最多的会议，我们尽量每次参加开始时间最早的会议。</strong> 注意以下问题：</p><ol><li>比如某会议时间是 <code>[1,10]</code>，那么我们先尽量尝试第 <code>1</code> 天参加，如果参加了别的会议，再尝试第 <code>2</code> 天…</li><li>如果两个会议开始时间相同，我们优先选择结束时间早的那个会议。比如 <code>[1,4]</code> 和 <code>[1,3]</code>，利用优先队列，第 <code>1</code> 天先参加 <code>[1,3]</code>，第 <code>2</code> 天参加 <code>[1,4]</code>。<h4 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h4>我们将 <code>events</code> 按照最小优先队列（小顶堆）的结构来储存，当队列不为空时，弹出队首元素，</li><li>判断能否参加会议，若结束时间小于当天，说明过期了不能参加，跳过；</li><li>如果可以参加，比较当天和开始时间：<ul><li>如果当天大于开始时间，说明我们没有必要非在今天参加，把 <code>[当天，结束时间]</code>重新加入优先队列，以查找有没有只能在今天参加的会议；</li><li>如果当天等于开始时间，我们立即开始这个会议。因为优先队列保证开始时间相同时结束时间是递增的。</li></ul></li></ol><p><img src="https://i.loli.net/2020/02/16/rpolRWYUaIh2ZMu.gif" alt="Priority queue"></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">maxEvents</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> events<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>        res <span class="token operator">=</span> <span class="token number">0</span>        heapq<span class="token punctuation">.</span>heapify<span class="token punctuation">(</span>events<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 把events转化成堆结构</span>        cur <span class="token operator">=</span> events<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>        <span class="token keyword">while</span> events<span class="token punctuation">:</span>            s<span class="token punctuation">,</span> e <span class="token operator">=</span> heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>events<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># print([s,e])</span>            <span class="token keyword">if</span> e <span class="token operator">&lt;</span> cur<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 如果结束时间小于当前天，说明过期了，不能参加</span>                <span class="token keyword">continue</span>            <span class="token comment" spellcheck="true"># 如果开始时间小于当天，我们也不必今天参加，可以在（当天，结束天）任何一天参加</span>            <span class="token keyword">if</span> s <span class="token operator">&lt;</span> cur<span class="token punctuation">:</span>                 heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>events<span class="token punctuation">,</span><span class="token punctuation">[</span>cur<span class="token punctuation">,</span>e<span class="token punctuation">]</span><span class="token punctuation">)</span>            <span class="token keyword">else</span><span class="token punctuation">:</span>                cur <span class="token operator">=</span> max<span class="token punctuation">(</span>cur <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>s <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>                res <span class="token operator">+=</span> <span class="token number">1</span>        <span class="token keyword">return</span> res </code></pre><p>如有问题，欢迎讨论~</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> LeetCode </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> LeetCode </tag>
-            
-            <tag> 贪心算法 </tag>
-            
-            <tag> 优先队列 </tag>
-            
-            <tag> 力扣周赛 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>面试题31. 栈的压入、弹出序列</title>
       <link href="/2020/02/16/lcof31/"/>
       <url>/2020/02/16/lcof31/</url>
@@ -163,9 +190,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 贪心算法 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 栈 </tag>
             
@@ -443,11 +470,11 @@
       
         <tags>
             
+            <tag> 贪心算法 </tag>
+            
             <tag> 哈希表 </tag>
             
             <tag> LeetCode </tag>
-            
-            <tag> 贪心算法 </tag>
             
         </tags>
       
@@ -503,9 +530,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -572,35 +599,6 @@
     
     
     <entry>
-      <title>55. Jump Game</title>
-      <link href="/2020/02/04/0055/"/>
-      <url>/2020/02/04/0055/</url>
-      
-        <content type="html"><![CDATA[<h1 id="1344-Jump-Game-V"><a href="#1344-Jump-Game-V" class="headerlink" title="1344. Jump Game V"></a>1344. Jump Game V</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/04/cAE6rgJXDdsLm1B.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们设定初始值 <code>max_i</code> 为当前可跳的最远位置，遍历一遍数组，维护 <code>max_i</code>。遍历结束后，如果 <code>max_i &gt;= len(nums) - 1</code>，这时说明能够到达最后位置,返回 <code>True</code>，否则返回 <code>False</code>。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>Python3</p><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">canJump</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>        <span class="token comment" spellcheck="true"># 初始化能到达的最远位置</span>        max_i <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> max_i <span class="token operator">>=</span> i <span class="token operator">and</span> i <span class="token operator">+</span> num <span class="token operator">></span> max_i<span class="token punctuation">:</span>                max_i <span class="token operator">=</span> i <span class="token operator">+</span> num        <span class="token keyword">return</span> max_i <span class="token operator">>=</span> i <span class="token comment" spellcheck="true"># >= 是因为可能会跳出界</span></code></pre><p>C++</p><pre class=" language-C++"><code class="language-C++">class Solution {public:    bool canJump(vector<int>& nums) {        int max_i = 0;        for(int i = 0; i<nums.size();i++){            if(max_i >= i && i + nums[i] > max_i){                max_i = i + nums[i];            }        }        return max_i >= nums.size() - 1;    }};</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：O(N)。</li><li>空间复杂度：O(1)。</li></ul><h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul><li><a href="//0045.md">跳跃游戏 Ⅱ</a></li><li><a href="//1306.md">跳跃游戏 Ⅲ</a></li><li>跳跃游戏 Ⅳ</li><li>跳跃游戏 Ⅴ</li></ul><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>动态规划的题目比较难，我们需要吃透几个题目，慢慢去体会~加油！</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> LeetCode </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> LeetCode </tag>
-            
-            <tag> Python3 </tag>
-            
-            <tag> 贪心算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>240. Search a 2D Matrix II</title>
       <link href="/2020/02/04/0240/"/>
       <url>/2020/02/04/0240/</url>
@@ -622,6 +620,35 @@
             <tag> Python3 </tag>
             
             <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>55. Jump Game</title>
+      <link href="/2020/02/04/0055/"/>
+      <url>/2020/02/04/0055/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1344-Jump-Game-V"><a href="#1344-Jump-Game-V" class="headerlink" title="1344. Jump Game V"></a>1344. Jump Game V</h1><h3 id="题目描述（难度：中等）"><a href="#题目描述（难度：中等）" class="headerlink" title="题目描述（难度：中等）"></a>题目描述（难度：中等）</h3><p><img src="https://i.loli.net/2020/02/04/cAE6rgJXDdsLm1B.png" alt=""></p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>我们设定初始值 <code>max_i</code> 为当前可跳的最远位置，遍历一遍数组，维护 <code>max_i</code>。遍历结束后，如果 <code>max_i &gt;= len(nums) - 1</code>，这时说明能够到达最后位置,返回 <code>True</code>，否则返回 <code>False</code>。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>Python3</p><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">canJump</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>        <span class="token comment" spellcheck="true"># 初始化能到达的最远位置</span>        max_i <span class="token operator">=</span> <span class="token number">0</span>        <span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>            <span class="token keyword">if</span> max_i <span class="token operator">>=</span> i <span class="token operator">and</span> i <span class="token operator">+</span> num <span class="token operator">></span> max_i<span class="token punctuation">:</span>                max_i <span class="token operator">=</span> i <span class="token operator">+</span> num        <span class="token keyword">return</span> max_i <span class="token operator">>=</span> i <span class="token comment" spellcheck="true"># >= 是因为可能会跳出界</span></code></pre><p>C++</p><pre class=" language-C++"><code class="language-C++">class Solution {public:    bool canJump(vector<int>& nums) {        int max_i = 0;        for(int i = 0; i<nums.size();i++){            if(max_i >= i && i + nums[i] > max_i){                max_i = i + nums[i];            }        }        return max_i >= nums.size() - 1;    }};</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul><li>时间复杂度：O(N)。</li><li>空间复杂度：O(1)。</li></ul><h3 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h3><ul><li><a href="//0045.md">跳跃游戏 Ⅱ</a></li><li><a href="//1306.md">跳跃游戏 Ⅲ</a></li><li>跳跃游戏 Ⅳ</li><li>跳跃游戏 Ⅴ</li></ul><h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>动态规划的题目比较难，我们需要吃透几个题目，慢慢去体会~加油！</p><p><img src="https://i.loli.net/2020/02/03/4WgNw6XZHQJ2hBV.png" alt="添加好友共同进步~"></p><p>如果觉得对您有帮助，别忘了点击一个 <a href="https://github.com/ML-ZimingMeng/LeetCode-Python3" target="_blank" rel="noopener">star⭐</a> 哦^_^</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 贪心算法 </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Python3 </tag>
             
         </tags>
       

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ml-zimingmeng.github.io/2020/03/07/cpp-pointers-continued/</loc>
+    
+    <lastmod>2020-03-07T11:22:26.999Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ml-zimingmeng.github.io/2020/02/29/cpp-pointers/</loc>
     
     <lastmod>2020-02-29T09:59:07.246Z</lastmod>
